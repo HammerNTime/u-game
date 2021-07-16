@@ -14,7 +14,7 @@ const reviewSchema = new Schema({
   },
   content: String,
   game: {type: mongoose.Schema.Types.ObjectId, ref: "Game", required},
-  author: {type: mongoose.Schema.Type.ObjectId, ref: "Profile", required}
+  author: {type: mongoose.Schema.Types.ObjectId, ref: "Profile", required}
 })
 
 const Review = mongoose.model("Review", reviewSchema)

@@ -69,6 +69,9 @@ font-family: 'Staatliches', cursive;
   z-index: 1;
   border: 1px black solid;
   margin-top: 5px;
+  font-size: 17px;
+  font-family: 'Hammersmith One', sans-serif;  
+
 }
 
 .drop-content a {

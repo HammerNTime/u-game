@@ -42,15 +42,19 @@ font-family: 'Staatliches', cursive;
   font-family: 'Tourney', cursive;
   font-weight: 600;
 }
+.site-title:hover {
+  color: red;
+}
 
 .right-nav-container {
   display: flex;
 }
 
 .drop-menu {
-  margin: 18px 50px 0 0;
+  margin: 18px 40px 0 0;
 }
 .drop-btn {
+  transition: .5s;
   width: 75px;
   height: 35px;
   border: rgb(94, 94, 94) 1px solid;
@@ -64,17 +68,28 @@ font-family: 'Staatliches', cursive;
   display: none;
   position: absolute;
   background-color: #78d6ff;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 180px;
   z-index: 1;
   border: 1px black solid;
   margin-top: 5px;
   font-size: 17px;
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+.profile-btn {
+  margin: 18px 40px 0 0;
+  width: 75px;
+  height: 35px;
+  border: rgb(94, 94, 94) 1px solid;
+  background-color: #78d6ff;
+  border-radius: 5px;
   font-family: 'Hammersmith One', sans-serif;  
+  font-size: 18px;
+
 
 }
 
-.drop-content a {
+.drop-menu:hover .drop-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -93,11 +108,19 @@ font-family: 'Staatliches', cursive;
 
 .drop-menu:hover .drop-btn {
   background-color: #fff956;
+  transition: .5s;
+  width: 180px;
+}
+
+.profile-btn:hover {
+  background-color: #fff956;
+
 }
 
 .logout-btn:hover {
   background-color: red;
   color: white;
+
 }
 #controller {
   width: 60px;

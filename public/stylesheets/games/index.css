@@ -6,7 +6,7 @@ main {
 
 .games-container {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
   align-items: flex-start;
   justify-content: left;
   flex-wrap: wrap;
@@ -15,4 +15,5 @@ main {
 .game-image {
   width: 150px;
   height: 200px;
+  margin: 10px;
 }

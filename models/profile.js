@@ -4,9 +4,16 @@ export {
   Profile
 }
 
+const consoleSchema = new mongoose.Schema({
+  system: String,
+  gamerTag: String,
+
+})
+
 const profileSchema = new mongoose.Schema({
   name: String,
   avatar: String,
+  console: [consoleSchema]
 }, {
   timestamps: true
 })

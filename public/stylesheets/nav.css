@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: inherit;
+}
+nav {
+  background: linear-gradient(90deg, white 0%, rgba(0,212,255,1) 35%, rgb(17, 17, 182) 100%); 
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  height: 75px;
+  border-bottom: black 3px solid;
+}
+.title-div {
+  margin: -43px 0 0 15px;
+}
+.logout-btn {
+cursor: pointer;
+/* border: black 1px solid; */
+border-radius: 5px;
+border: none;
+background-color: rgb(255, 200, 50);
+width: 70px;
+height: 35px;
+margin: 18px 15px 0 0;
+font-size: 19px;
+font-family: 'Staatliches', cursive;
+}
+nav div a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+#controller {
+  width: 60px;
+}
+
+
+.site-title {
+  font-size: 51px;
+  font-family: 'Tourney', cursive;
+  font-weight: 600;
+
+
+}

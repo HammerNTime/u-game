@@ -1,18 +1,28 @@
   <% if (!user) { %>
     <link rel="stylesheet" href="/stylesheets/siwg.css">
   <% } %>
+  <link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 <body>
   <nav>
-    <% if (user) { %>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
+    <div class="title-div">
+      <a href="/">
+        <img src="/images/controllerImg/game-controller.png" alt="U" id="controller">
+        <p class="site-title">Game</p>
       </a>
-    <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
-        </button>
-      </a>
-    <% } %>
+    </div>
+    <div class="nav-btns">
+      <% if (user) { %>
+        <a href="/auth/logout">
+          <button type="submit" class="logout-btn">Logout</button>
+        </a>
+      <% } else { %>
+        <a href="/auth/google" class="siwg-link">
+          <button type="submit" class="siwg">
+            <img id="siwg-image" alt="Sign in with Google" />
+          </button>
+        </a>
+      <% } %>
+      
+    </div>
   </nav>

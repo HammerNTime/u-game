@@ -1,0 +1,18 @@
+main {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.games-container {
+  display: flex;
+  margin-top: 20px;
+  align-items: flex-start;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.game-image {
+  width: 150px;
+  height: 200px;
+}

@@ -11,9 +11,11 @@ const gameSchema = new Schema({
   genre: {type: [String],
     
   },
+  imageUrl: String,
   ownedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "Profile"}],
-  guideUrl: [String],
   reviews: [{type: mongoose.Schema.Types.ObjectId, ref: "Review"}]
+}, {
+  timestamps: true
 })
 
 const Game = mongoose.model("Game", gameSchema)

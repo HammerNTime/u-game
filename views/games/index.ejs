@@ -1,8 +1,16 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/games/index.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>ALL GAMES PAGE</h1>
+  <div class="games-container">
+    <% games.forEach((game) => { %> 
+      <% console.log(game) %> 
+      <div class="game-image-container">
+        <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
+      </div>
+    <% }) %> 
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

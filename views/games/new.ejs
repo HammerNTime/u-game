@@ -3,6 +3,24 @@
 
 <main>
   <h1>NEW GAME</h1>
+  <form id="add-game-form" action="/games" method="POST">
+    <label for="title-input">Title:</label>
+    <input type="text" name="title" id="title-input">
+    <label for="description-input">Description:</label>
+    <input type="text" name="description" id="description-input">
+    <label for="genre-input">Genre:</label>
+    <select name="genre" id="genre-input">
+      <option value="action">Action</option>
+      <option value="adventure">Adventure</option>
+      <option value="rpg">RPG</option>
+      <option value="shooter">Shooter</option>
+      <option value="simulation">Simulation</option>
+      <option value="sports">Sports</option>
+    </select>
+    <label for="image-input">Image:</label>
+    <input type="text" name="imageUrl">
+    <button type="submit">Submit</button>
+  </form>
 </main>
 
 <%- include('../partials/footer') %>

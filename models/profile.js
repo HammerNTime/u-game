@@ -7,7 +7,6 @@ export {
 const consoleSchema = new mongoose.Schema({
   system: String,
   gamerTag: String,
-
 })
 
 const profileSchema = new mongoose.Schema({

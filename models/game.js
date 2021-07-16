@@ -13,7 +13,7 @@ const gameSchema = new Schema({
   },
   ownedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "Profile"}],
   guideUrl: [String],
-  reviews: [{}]
+  reviews: [{type: mongoose.Schema.Types.ObjectId, ref: "Review"}]
 })
 
 const Game = mongoose.model("Game", gameSchema)

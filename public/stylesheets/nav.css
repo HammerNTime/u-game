@@ -21,7 +21,8 @@ nav div a {
 }
 
 .title-div {
-  margin: -43px 0 0 15px;
+  margin: 0 0 0 15px;
+  display: flex;
 }
 
 .logout-btn {
@@ -43,7 +44,13 @@ font-family: 'Staatliches', cursive;
   font-weight: 600;
 }
 
+.page-title {
+  font-size: 20px;
+  margin: 16px 0 0 20px;
+  font-family: 'Tourney', cursive;
+  opacity: .6;
 
+}
 .right-nav-container {
   display: flex;
 }
@@ -53,7 +60,7 @@ font-family: 'Staatliches', cursive;
   cursor: pointer;
 }
 .drop-btn {
-  transition: .5s;
+  transition: width .5s;
   width: 75px;
   height: 35px;
   border: rgb(94, 94, 94) 1px solid;

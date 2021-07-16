@@ -13,6 +13,7 @@ const consoleSchema = new mongoose.Schema({
 const profileSchema = new mongoose.Schema({
   name: String,
   avatar: String,
+  twitchUrl: [String],
   console: [consoleSchema]
 }, {
   timestamps: true

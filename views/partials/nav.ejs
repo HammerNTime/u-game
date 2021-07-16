@@ -11,18 +11,28 @@
         <p class="site-title">Game</p>
       </a>
     </div>
-    <div class="nav-btns">
-      <% if (user) { %>
-        <a href="/auth/logout">
-          <button type="submit" class="logout-btn">Logout</button>
-        </a>
-      <% } else { %>
-        <a href="/auth/google" class="siwg-link">
-          <button type="submit" class="siwg">
-            <img id="siwg-image" alt="Sign in with Google" />
-          </button>
-        </a>
-      <% } %>
-      
+    <div class="right-nav-container">
+      <div class="drop-menu">
+        <button class="drop-btn">Games</button>
+        <div class="drop-content">
+          <a href="#" class="drop-btn-1">All Games</a>
+          <a href="#" class="drop-btn-2">Add Game</a>
+          <a href="#">Recent Reviews</a>
+        </div>
+      </div>
+  
+      <div class="nav-btns">
+        <% if (user) { %>
+          <a href="/auth/logout">
+            <button type="submit" class="logout-btn">Logout</button>
+          </a>
+        <% } else { %>
+          <a href="/auth/google" class="siwg-link">
+            <button type="submit" class="siwg">
+              <img id="siwg-image" alt="Sign in with Google" />
+            </button>
+          </a>
+        <% } %>
+      </div>
     </div>
   </nav>

@@ -3,6 +3,7 @@ body {
   padding: 0;
   width: inherit;
 }
+
 nav {
   background: linear-gradient(90deg, white 0%, rgba(0,212,255,1) 35%, rgb(17, 17, 182) 100%); 
   display: flex;
@@ -11,21 +12,7 @@ nav {
   height: 75px;
   border-bottom: black 3px solid;
 }
-.title-div {
-  margin: -43px 0 0 15px;
-}
-.logout-btn {
-cursor: pointer;
-/* border: black 1px solid; */
-border-radius: 5px;
-border: none;
-background-color: rgb(255, 200, 50);
-width: 70px;
-height: 35px;
-margin: 18px 15px 0 0;
-font-size: 19px;
-font-family: 'Staatliches', cursive;
-}
+
 nav div a {
   display: flex;
   align-items: center;
@@ -33,15 +20,82 @@ nav div a {
   color: black;
 }
 
-#controller {
-  width: 60px;
+.title-div {
+  margin: -43px 0 0 15px;
 }
 
+.logout-btn {
+cursor: pointer;
+/* border: black 1px solid; */
+border-radius: 5px;
+border: rgb(94, 94, 94) 1px solid;
+background-color: rgb(255, 200, 50);
+width: 70px;
+height: 35px;
+margin: 18px 15px 0 0;
+font-size: 19px;
+font-family: 'Staatliches', cursive;
+}
 
 .site-title {
   font-size: 51px;
   font-family: 'Tourney', cursive;
   font-weight: 600;
+}
 
+.right-nav-container {
+  display: flex;
+}
 
+.drop-menu {
+  margin: 18px 50px 0 0;
+}
+.drop-btn {
+  width: 75px;
+  height: 35px;
+  border: rgb(94, 94, 94) 1px solid;
+  background-color: #78d6ff;
+  border-radius: 5px;
+  font-family: 'Hammersmith One', sans-serif;  
+  font-size: 18px;
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: #78d6ff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border: 1px black solid;
+  margin-top: 5px;
+}
+
+.drop-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border: 1px black solid;
+}
+
+.drop-content a:hover {
+  background-color: rgb(255, 251, 0);
+}
+
+.drop-menu:hover .drop-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.drop-menu:hover .drop-btn {
+  background-color: #fff956;
+}
+
+.logout-btn:hover {
+  background-color: red;
+  color: white;
+}
+#controller {
+  width: 60px;
 }

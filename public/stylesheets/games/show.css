@@ -18,19 +18,14 @@ main {
   margin: 30px 0 0 50px;
 }
 
-.index-nav {
-  background: linear-gradient(90deg, white 0%, rgba(0,212,255,1) 35%, rgb(17, 17, 182) 100%); 
-  display: flex;
-  justify-content: left;
-  margin: 0;
-  height: 35px;
-  border-bottom: black 3px solid;
-  font-size: 20px;
-  text-decoration: none;
-}
-
 .game-details {
   flex-wrap: wrap;
   font-size: 20px;
   margin: 32px 0 0 25px;
+}
+
+.add-review-btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0 0 50px;
 }

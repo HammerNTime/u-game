@@ -4,44 +4,46 @@
   <link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 <body>
-  <nav>
-    <div class="title-div">
-      <a href="/">
-        <img src="/images/controllerImg/game-controller.png" alt="U" id="controller">
-        <p class="site-title">Game</p>
-      </a>
-      <div class="page-title">
-        <p>
-          <%= title %>
-        </p>
+  <div class="nav-container">
+    <nav>
+      <div class="title-div">
+        <a href="/">
+          <img src="/images/controllerImg/game-controller.png" alt="U" id="controller">
+          <p class="site-title">Game</p>
+        </a>
+        <div class="page-title">
+          <p>
+            <%= title %>
+          </p>
+        </div>
       </div>
-    </div>
-      <div class="right-nav-container">
-        <div class="drop-menu">
-          <button class="drop-btn">Games</button>
-          <div class="drop-content">
-            <a href="/games" class="drop-btn-1">All Games</a>
-            <a href="/games/new" class="drop-btn-2">Add Game</a>
-            <a href="#">Recent Reviews</a>
+        <div class="right-nav-container">
+          <div class="drop-menu">
+            <button class="drop-btn">Games</button>
+            <div class="drop-content">
+              <a href="/games" class="drop-btn-1">All Games</a>
+              <a href="/games/new" class="drop-btn-2">Add Game</a>
+              <a href="#">Recent Reviews</a>
+            </div>
+          </div>
+  
+          <div class="profile-btn-container">
+            <button class="profile-btn" action="#">Profile</button>
+          </div>
+  
+          <div class="nav-btns">
+            <% if (user) { %>
+              <a href="/auth/logout">
+                <button type="submit" class="logout-btn">Logout</button>
+              </a>
+            <% } else { %>
+              <a href="/auth/google" class="siwg-link">
+                <button type="submit" class="siwg">
+                  <img id="siwg-image" alt="Sign in with Google" />
+                </button>
+              </a>
+            <% } %>
           </div>
         </div>
-
-        <div class="profile-btn-container">
-          <button class="profile-btn" action="#">Profile</button>
-        </div>
-
-        <div class="nav-btns">
-          <% if (user) { %>
-            <a href="/auth/logout">
-              <button type="submit" class="logout-btn">Logout</button>
-            </a>
-          <% } else { %>
-            <a href="/auth/google" class="siwg-link">
-              <button type="submit" class="siwg">
-                <img id="siwg-image" alt="Sign in with Google" />
-              </button>
-            </a>
-          <% } %>
-        </div>
-      </div>
-  </nav>
+    </nav>
+  </div>

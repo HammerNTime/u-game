@@ -4,12 +4,15 @@
 
 <main>
   <div class="games-container">
-      <% console.log(game) %> 
+    <div class="game-btn-container">
       <div class="game-image-container">
-        <a href="/games/<%= game._id %>">
-          <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
-        </a>
+        <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
       </div>
+      <div class="add-review-btn-container">
+        <button>Add Game</button>
+        <button>Review Game</button>
+      </div>
+    </div>
       <div class="game-details">
         <div class="game-title"><%= game.title %></div>
         <div class="game-description"><%= game.description %></div>

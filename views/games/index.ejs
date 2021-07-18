@@ -2,12 +2,24 @@
 <link rel="stylesheet" href="/stylesheets/games/index.css">
 <%- include('../partials/nav') %>
 
+<nav class="index-nav">
+  <a href="#">All Games</a>
+  <a href="#">All Games</a>
+  <a href="#">All Games</a>
+  <a href="#">All Games</a>
+  <a href="#">All Games</a>
+  <a href="#">All Games</a>
+  <a href="#">All Games</a>
+  <a href="#">All Games</a>
+</nav>
 <main>
   <div class="games-container">
     <% games.forEach((game) => { %> 
       <% console.log(game) %> 
       <div class="game-image-container">
-        <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
+        <a href="/games/<%= game._id %>">
+          <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
+        </a>
       </div>
     <% }) %> 
   </div>

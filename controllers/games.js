@@ -5,15 +5,20 @@ export {
   index,
   newGame as new,
   create,
+  show,
 }
 
 function index(req, res){
-  Game.find({}, function(err, games){
+  Game.find({})
+  .then(games => {
     res.render("games/index", {
       title: "All Games",
       games,
-      err,
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/games")
   })
 }
 
@@ -30,5 +35,17 @@ function create(req, res){
   game.save(function(err){
     if (err) return res.redirect("/games/new")
     res.redirect("/games")
+  })
+}
+
+function show(req, res) {
+  Game.findById(req.params.id) 
+  .then(game => {
+    console.log(game)
+    res.render("games/show", {
+      title: game.title,
+      game
+    })
+
   })
 }

@@ -48,6 +48,9 @@ function show(req, res) {
       title: game.title,
       game
     })
-
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/games")
   })
 }

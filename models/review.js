@@ -13,8 +13,8 @@ const reviewSchema = new Schema({
     max: 5,
   },
   content: String,
-  game: {type: mongoose.Schema.Types.ObjectId, ref: "Game", required},
-  author: {type: mongoose.Schema.Types.ObjectId, ref: "Profile", required}
+  game: {type: mongoose.Schema.Types.ObjectId, ref: "Game"},
+  author: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"}
 }, {
   timestamps: true
 })

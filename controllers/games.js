@@ -31,8 +31,6 @@ function newGame(req, res) {
 }
 
 function create(req, res){
-  console.log("i work")
-  console.log(req.body)
   let game = new Game(req.body)
   game.save(function(err){
     if (err) return res.redirect("/games/new")
@@ -41,7 +39,8 @@ function create(req, res){
 }
 
 function show(req, res) {
-  Game.findById(req.params.id) 
+  Game.findById(req.params.id)
+  .populate("reviews")
   .then(game => {
     console.log(game)
     res.render("games/show", {

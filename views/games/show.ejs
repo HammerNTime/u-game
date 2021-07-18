@@ -22,7 +22,10 @@
         <div class="game-owned-by"><%= game.ownedBy %></div>
       </div>
     </div>
-    <div class="game-reviews"><%= game.reviews %> Reviews here</div>
+    <% game.reviews.forEach(function(review) { %>
+      <div class="game-reviews"><%= review.content %></div>
+      <% console.log(game.reviews) %> 
+    <% }) %>  
 </main>
 
 <%- include('../partials/footer') %>

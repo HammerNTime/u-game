@@ -1,12 +1,14 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/games/show.css">
+<link rel="stylesheet" href="/stylesheets/reviews/new.css">
 <%- include('../partials/nav') %>
 
 <main>
   <div class="games-container">
     <div class="game-btn-container">
       <div class="game-image-container">
+        <a href="/games/<%= game._id %>">
         <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
+        </a>    
       </div>
       <div class="add-review-btn-container">
         <button>Add Game</button>

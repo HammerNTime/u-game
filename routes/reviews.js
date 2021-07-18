@@ -9,3 +9,4 @@ export {
 const router = Router()
 
 router.get("/:id/new", reviewsCtrl.new)
+router.post("/:id", reviewsCtrl.create)

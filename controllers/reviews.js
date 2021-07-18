@@ -4,8 +4,8 @@ import { Game } from "../models/game.js"
 
 
 export {
-
-  newReview as new
+  create,
+  newReview as new,
 }
 
 function newReview(req, res) {
@@ -20,5 +20,20 @@ function newReview(req, res) {
   .catch(err => {
     console.log(err)
     res.redirect("/games")
+  })
+}
+
+function create(req,res) {
+  Game.findById(req.params.id)
+  .then(game => {
+    let review = new Review(req.body)
+    review.save(err => {
+      if (err) return res.redirect(`/reviews/${req.params.id}/new`)
+      game.reviews.push(review._id)
+      game.save(err => {
+        if (err) return res.redirect(`/reviews/${req.params.id}/new`)
+        res.redirect(`/games/${req.params.id}`)
+      })
+    })
   })
 }

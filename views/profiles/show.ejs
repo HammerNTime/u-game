@@ -21,7 +21,9 @@
   </div>
   <% if (profile.twitchUrl) { %> 
     <div>
-      <%= profile.twitchUrl %> 
+      <a href="<%= profile.twitchUrl %> ">
+        Twitch Link
+      </a>
     </div>
   <% } %> 
     <% profile.console.forEach(console => { %>

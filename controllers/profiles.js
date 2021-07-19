@@ -9,6 +9,7 @@ export {
   addConsole,
   createConsole,
   edit,
+  update,
 }
 
 
@@ -77,5 +78,17 @@ function edit(req, res) {
       title: "Edit Your Profile",
       profile
     })
+  })
+}
+
+function update(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    if (profile._id.equals(req.user.profile._id)){
+      profile.update(req.body, {new: true})
+      .then(() => {
+        res.redirect(`/profiles/${req.params.id}`)
+      })
+    }
   })
 }

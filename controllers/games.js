@@ -18,6 +18,7 @@ export {
   sports,
   edit,
   update,
+  deleteGame as delete,
 }
 
 function index(req, res){
@@ -177,5 +178,34 @@ function update(req, res){
     } else {
       res.redirect(`/games/${req.params.id}`)
     }
+  })
+}
+
+function deleteGame(req, res) {
+  Game.findById(req.params.id)
+  .populate("reviews")
+  .populate("ownedBy")
+  .then(game => {
+    game.ownedBy.forEach(owner => {
+      owner.ownedGames.remove({ "_id": `${game._id}`})
+      owner.save()
+    })
+    game.reviews.forEach(review => {
+      Profile.findById(review.author)
+      .populate("reviews")
+      .then(profile => {
+        console.log(profile)
+        profile.reviews.remove({ "_id": `${review._id}`})
+        profile.save()
+      })
+      review.delete()
+    })
+    game.delete()
+    .then(() => {
+      res.redirect("/games")
+    })
+  })
+  .catch(err => {
+    console.log(err)
   })
 }

@@ -134,21 +134,15 @@ function update(req, res){
 }
 
 function deleteReview(req, res) {
-  console.log("got to step 1")
-  
-  
   Review.findById(req.params.reviewId)
   .populate("game")
   .then(review => {
-    console.log("got to step 2")
     Game.findById(review.game._id)
     .populate("reviews")
     .then(game => {
-      console.log(game)
       Profile.findById(req.user.profile._id)
       .populate("reviews")
       .then(self => {
-        console.log("got to step 3")
         if (review.author.equals(self._id)){
           self.reviews.remove({ "_id": `${review._id}` })
           self.save()
@@ -169,7 +163,6 @@ function deleteReview(req, res) {
   })
 }
 
-
 function findSelf(selfParam, objId){
   let checker = false
   selfParam.reviews.forEach(param => {
@@ -178,13 +171,4 @@ function findSelf(selfParam, objId){
     }
   })
   return checker
-}
-
-function deleteReviewsAll(model, id) {
-  model.reviews.forEach(review => {
-    if (review._id.equals(id._id)){
-      review.remove()
-    }
-  })
-
 }

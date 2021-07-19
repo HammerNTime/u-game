@@ -11,25 +11,32 @@
         </a>    
       </div>
     </div>
-  <h1><%= title %>: </h1>
-  <form id="add-game-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
-    <label for="title-input">Title:</label>
-    <input type="text" name="title" id="title-input" value="<%= game.title %> ">
-    <label for="description-input">Description:</label>
-    <input type="text" name="description" id="description-input" value="<%= game.description %> ">
-    <label for="genre-input">Genre:</label>
-    <select name="genre" id="genre-input">
-      <option value="Action">Action</option>
-      <option value="Adventure">Adventure</option>
-      <option value="RPG">RPG</option>
-      <option value="Shooter">Shooter</option>
-      <option value="Simulation">Simulation</option>
-      <option value="Sports">Sports</option>
-    </select>
-    <label for="image-input">Image:</label>
-    <input type="text" name="imageUrl" value="<%= game.imageUrl %> ">
-    <button type="submit">Submit</button>
-  </form>
+    <h1><%= title %>: </h1>
+    <div>
+      <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Game</button>
+      </form>
+    </div>
+    <div>
+      <form id="add-game-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
+        <label for="title-input">Title:</label>
+        <input type="text" name="title" id="title-input" value="<%= game.title %> ">
+        <label for="description-input">Description:</label>
+        <input type="text" name="description" id="description-input" value="<%= game.description %> ">
+        <label for="genre-input">Genre:</label>
+        <select name="genre" id="genre-input">
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="RPG">RPG</option>
+          <option value="Shooter">Shooter</option>
+          <option value="Simulation">Simulation</option>
+          <option value="Sports">Sports</option>
+        </select>
+        <label for="image-input">Image:</label>
+        <input type="text" name="imageUrl" value="<%= game.imageUrl %> ">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 </main>
 

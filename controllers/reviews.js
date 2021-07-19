@@ -7,6 +7,7 @@ import { Profile } from "../models/profile.js"
 export {
   create,
   newReview as new,
+  show,
 }
 
 function newReview(req, res) {
@@ -49,5 +50,15 @@ function create(req,res) {
   .catch(err => {
     console.log(err)
     res.redirect(`/reviews/${req.params.id}/new`)
+  })
+}
+
+function show(req, res) {
+  Review.findById(req.params.id)
+  .then(review => {
+    res.render("/reviews/show", {
+      title: review.title,
+      review,
+    })
   })
 }

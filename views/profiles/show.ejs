@@ -12,13 +12,17 @@
     </div>
     <div>
       <% profile.ownedGames.forEach(game => { %> 
-      <img class="game-image-url" src="<%= game.imageUrl %>" alt="<%= game.title %>">
+      <a href="/games/<%= game._id %>">
+        <img class="game-image-url" src="<%= game.imageUrl %>" alt="<%= game.title %>">
+      </a>
       <% }) %> 
     </div>
   <% } %>
     <% profile.reviews.forEach(review => { %> 
       <div>
-        <%= review.title %> 
+        <a href="/reviews/<%= review._id %>">
+          <%= review.title %> 
+        </a>
       </div>
       <% if (review.rating === "5") { %>   
         <div>⭐⭐⭐⭐⭐</div>

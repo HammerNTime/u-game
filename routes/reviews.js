@@ -9,4 +9,5 @@ export {
 const router = Router()
 
 router.get("/:id/new", isLoggedIn, reviewsCtrl.new)
+router.get("/:id", reviewsCtrl.show)
 router.post("/:id", isLoggedIn, reviewsCtrl.create)

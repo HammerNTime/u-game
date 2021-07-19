@@ -1,0 +1,29 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <div>
+    <a href="/reviews/<%= review._id %>">
+      <%= review.title %> 
+    </a>
+  </div>
+  <% if (review.rating === "5") { %>   
+    <div>⭐⭐⭐⭐⭐</div>
+  <% } else if (review.rating === "4") { %>
+    <div>⭐⭐⭐⭐</div> 
+  <% } else if (review.rating === "3") { %> 
+    <div>⭐⭐⭐</div> 
+  <% } else if (review.rating === "2") { %> 
+    <div>⭐⭐</div> 
+  <% } else if (review.rating === "1") { %> 
+    <div>⭐</div> 
+  <% } %> 
+  <div>
+    <%= review.content %> 
+  </div>
+</main>
+
+
+
+
+<%- include('../partials/footer') %>

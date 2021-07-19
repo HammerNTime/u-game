@@ -17,6 +17,7 @@ export {
   simulation,
   sports,
   edit,
+  update,
 }
 
 function index(req, res){
@@ -162,5 +163,19 @@ function edit(req, res){
       title: `Edit ${game.title}`,
       game,
     })
+  })
+}
+
+function update(req, res){
+  Game.findById(req.params.id)
+  .then(game => {
+    if (req.user) {
+      game.update(req.body, {new: true})
+      .then(() => {
+        res.redirect(`/games/${req.params.id}`)
+      })
+    } else {
+      res.redirect(`/games/${req.params.id}`)
+    }
   })
 }

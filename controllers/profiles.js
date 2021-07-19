@@ -5,7 +5,9 @@ import { Game } from "../models/game.js"
 
 
 export {
-  show
+  show,
+  addConsole,
+  createConsole,
 }
 
 
@@ -29,5 +31,38 @@ function show(req, res) {
   .catch((err) => {
     console.log(err)
     res.redirect("/")
+  })
+}
+
+function addConsole(req, res){
+  Profile.findById(req.params.id)
+  .populate("reviews")
+  .populate("ownedGames")
+  .then(profile => {
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const isSelf = self._id.equals(profile._id)
+      res.render(`profiles/add-console`, {
+        title: `Add Console`,
+        profile,
+        self,
+        isSelf
+      })
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
+function createConsole(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.console.push(req.body)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${req.params.id}`)
+    })
   })
 }

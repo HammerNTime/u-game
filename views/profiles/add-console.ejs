@@ -24,6 +24,7 @@
       <%= profile.twitchUrl %> 
     </div>
   <% } %> 
+  <% if (profile.console) { %>
     <% profile.console.forEach(console => { %>
       <div>
         <%= console.system %> 
@@ -32,10 +33,18 @@
         <%= console.gamerTag %> 
       </div>
     <% }) %>  
+  <% } %> 
   
-  <a href="/profiles/<%= profile._id %>/add-console">
-    <button>Add a Console</button>
-  </a>
+<form id="add-console-form" 
+action="/profiles/<%= profile._id %>/add-console" 
+method="POST"
+>
+  <label for="system-input">System:</label>
+  <input type="text" id="system-input" name="system">
+  <label for="gamer-tag-input">GamerTag:</label>
+  <input type="text" id="gamer-tag-input" name="gamerTag">
+  <button type="submit">Add</button>
+</form>
 
   <div>
     <% profile.ownedGames.forEach(game => { %> 

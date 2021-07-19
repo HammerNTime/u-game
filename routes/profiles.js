@@ -9,3 +9,5 @@ export {
 const router = Router()
 
 router.get("/:id", isLoggedIn, profilesCtrl.show)
+router.get("/:id/add-console", isLoggedIn, profilesCtrl.addConsole)
+router.post("/:id/add-console", isLoggedIn, profilesCtrl.createConsole)

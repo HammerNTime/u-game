@@ -19,7 +19,9 @@
         <div class="game-title"><%= game.title %></div>
         <div class="game-description"><%= game.description %></div>
         <div class="game-genre"><%= game.genre %></div>
+        <% if (user) { %> 
         <div class="game-owned-by"><%= game.ownedBy %></div>
+        <% } %> 
       </div>
     </div>
     <h1>Add Your Review!</h1>

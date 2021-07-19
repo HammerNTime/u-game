@@ -9,7 +9,11 @@
         <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
       </div>
       <div class="add-review-btn-container">
-        <button>Add Game</button>
+        <% if (user) { %> 
+          <a href="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
+            <button>Add Game</button>
+          </a>
+        <% } %> 
         <a href="/reviews/<%= game._id %>/new">
           <button>Review Game</button>
         </a>
@@ -19,10 +23,24 @@
         <div class="game-title"><%= game.title %></div>
         <div class="game-description"><%= game.description %></div>
         <div class="game-genre"><%= game.genre %></div>
+        <% if (user) { %> 
         <div class="game-owned-by"><%= game.ownedBy %></div>
+        <% } %> 
       </div>
     </div>
     <% game.reviews.forEach(function(review) { %>
+      <div><%= review.title %></div>
+        <% if (review.rating === "5") { %>   
+          <div>⭐⭐⭐⭐⭐</div>
+        <% } else if (review.rating === "4") { %>
+          <div>⭐⭐⭐⭐</div> 
+        <% } else if (review.rating === "3") { %> 
+          <div>⭐⭐⭐</div> 
+        <% } else if (review.rating === "2") { %> 
+          <div>⭐⭐</div> 
+        <% } else if (review.rating === "1") { %> 
+          <div>⭐</div> 
+        <% } %> 
       <div class="game-reviews"><%= review.content %></div>
       <% console.log(game.reviews) %> 
     <% }) %>  

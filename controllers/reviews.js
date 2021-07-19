@@ -1,5 +1,6 @@
 import { Review } from "../models/review.js"
 import { Game } from "../models/game.js"
+import { Profile } from "../models/profile.js"
 
 
 
@@ -24,16 +25,29 @@ function newReview(req, res) {
 }
 
 function create(req,res) {
-  Game.findById(req.params.id)
-  .then(game => {
-    let review = new Review(req.body)
-    review.save(err => {
-      if (err) return res.redirect(`/reviews/${req.params.id}/new`)
-      game.reviews.push(review._id)
-      game.save(err => {
-        if (err) return res.redirect(`/reviews/${req.params.id}/new`)
-        res.redirect(`/games/${req.params.id}`)
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    Game.findById(req.params.id)
+    .then(game => {
+      let review = new Review(req.body)
+      review.author = profile.id
+      review.gameTitle = game.title
+      review.save()
+      .then(() => {
+        game.reviews.push(review._id)
+        game.save()
+        .then(() => {
+          profile.reviews.push(review.id)
+          profile.save()
+          .then(() => {
+          res.redirect(`/games/${req.params.id}`)
+          })
+        })
       })
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/reviews/${req.params.id}/new`)
   })
 }

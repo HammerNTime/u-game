@@ -1,5 +1,6 @@
 import { Game } from "../models/game.js"
 import { Review } from "../models/review.js"
+import { Profile } from "../models/profile.js"
 
 
 
@@ -8,6 +9,7 @@ export {
   newGame as new,
   create,
   show,
+  ownGame,
 }
 
 function index(req, res){
@@ -19,7 +21,6 @@ function index(req, res){
     })
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/games")
   })
 }
@@ -42,14 +43,20 @@ function show(req, res) {
   Game.findById(req.params.id)
   .populate("reviews")
   .then(game => {
-    console.log(game)
     res.render("games/show", {
       title: game.title,
       game
     })
   })
   .catch(err => {
-    console.log(err)
     res.redirect("/games")
+  })
+}
+
+function ownGame(req, res) {
+  console.log(req.user.profile)
+  Game.findById(req.params.id)
+  .then(game => {
+    res.redirect(`/games/${req.params.id}`)
   })
 }

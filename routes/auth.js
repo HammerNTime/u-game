@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import passport from 'passport'
-
 export {
   router
 }
@@ -15,7 +14,7 @@ router.get(
 router.get(
   '/google/oauth2callback',
   passport.authenticate('google', {
-    successRedirect: '/',
+    successRedirect: "/",
     failureRedirect: '/auth/google',
   })
 )

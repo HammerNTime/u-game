@@ -5,5 +5,30 @@ import { Game } from "../models/game.js"
 
 
 export {
-  
+  show
+}
+
+
+
+function show(req, res) {
+  console.log("i work")
+  Profile.findById(req.params.id)
+  .populate("reviews")
+  .populate("ownedGames")
+  .then(profile => {
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const isSelf = self._id.equals(profile._id)
+      res.render("profiles/show", {
+        title: `${profile.name}'s profile`,
+        profile,
+        self,
+        isSelf
+      })
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirect("/")
+  })
 }

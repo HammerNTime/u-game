@@ -1,0 +1,40 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <% if (profile.avatar) { %>
+    <div>
+      <img 
+        class="profile-avatar"
+        src="<%= profile.avatar %>"
+        alt="<%= profile.name %> avatar"
+      >
+    </div>
+    <div>
+      <% profile.ownedGames.forEach(game => { %> 
+      <img class="game-image-url" src="<%= game.imageUrl %>" alt="<%= game.title %>">
+      <% }) %> 
+    </div>
+  <% } %>
+    <% profile.reviews.forEach(review => { %> 
+      <div>
+        <%= review.title %> 
+      </div>
+      <% if (review.rating === "5") { %>   
+        <div>⭐⭐⭐⭐⭐</div>
+      <% } else if (review.rating === "4") { %>
+        <div>⭐⭐⭐⭐</div> 
+      <% } else if (review.rating === "3") { %> 
+        <div>⭐⭐⭐</div> 
+      <% } else if (review.rating === "2") { %> 
+        <div>⭐⭐</div> 
+      <% } else if (review.rating === "1") { %> 
+        <div>⭐</div> 
+      <% } %> 
+      <div>
+        <%= review.content %> 
+      </div>
+    <% }) %> 
+</main>
+
+<%- include('../partials/footer') %>

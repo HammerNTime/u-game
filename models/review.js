@@ -7,6 +7,7 @@ export {
 
 
 const reviewSchema = new Schema({
+  gameTitle: String,
   title: String,
   rating: {type: String,
     min: 1,

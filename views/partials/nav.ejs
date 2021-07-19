@@ -19,17 +19,22 @@
       </div>
         <div class="right-nav-container">
           <div class="drop-menu">
-            <button class="drop-btn">Games</button>
+            <a href="/games">
+              <button class="drop-btn">Games</button>
+            </a>
             <div class="drop-content">
               <a href="/games" class="drop-btn-1">All Games</a>
               <a href="/games/new" class="drop-btn-2">Add Game</a>
               <a href="#">Recent Reviews</a>
             </div>
           </div>
-  
+          <% if (user) { %> 
           <div class="profile-btn-container">
-            <button class="profile-btn" action="#">Profile</button>
+            <a href="/profiles/<%= user?.profile._id %>">
+              <button class="profile-btn">Profile</button>
+            </a>
           </div>
+          <% } %> 
   
           <div class="nav-btns">
             <% if (user) { %>

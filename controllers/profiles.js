@@ -8,6 +8,7 @@ export {
   show,
   addConsole,
   createConsole,
+  edit,
 }
 
 
@@ -71,10 +72,10 @@ function edit(req, res) {
   Profile.findById(req.user.profile._id)
   .populate("games")
   .populate("reviews")
-  .then(self => {
-    res.redirect("/profiles/edit", {
+  .then(profile => {
+    res.render("profiles/edit", {
       title: "Edit Your Profile",
-      self
+      profile
     })
   })
 }

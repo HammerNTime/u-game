@@ -15,7 +15,6 @@ function index(req, res) {
   Game.find({})
   .then(games => {
     let randNums = getRandomInt(games.length)
-    console.log(randNums)
     res.render('index', { 
       title: 'Home', 
       user: req.user ? req.user : null,
@@ -40,6 +39,5 @@ function getRandomInt(max) {
     num3 = Math.floor(Math.random() * max)
   }
   nums.push(num1, num2, num3)
-  console.log(nums)
   return nums
 }

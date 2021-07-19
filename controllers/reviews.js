@@ -33,6 +33,7 @@ function create(req,res) {
       let review = new Review(req.body)
       review.author = profile.id
       review.gameTitle = game.title
+      review.game = game.id
       review.save()
       .then(() => {
         game.reviews.push(review._id)
@@ -55,10 +56,36 @@ function create(req,res) {
 
 function show(req, res) {
   Review.findById(req.params.id)
+  .populate("game")
+  .populate("author")
   .then(review => {
-    res.render("/reviews/show", {
-      title: review.title,
-      review,
+    let reviewId = review._id
+    Profile.findById(req.params.id)
+    .populate("reviews")
+    .populate("ownedGames")
+    .then(profile => {
+      Profile.findById(req.user.profile._id)
+      .then(self => {
+        const isSelf = findSelf(self, reviewId)  
+        console.log(isSelf)
+        res.render("reviews/show", {
+          title: `${review.title}`,
+          review,
+          game: review.game,
+          isSelf,
+          self,
+        })
+      })
     })
   })
+}
+
+function findSelf(selfParam, objId){
+  let checker = false
+  selfParam.reviews.forEach(param => {
+    if (param._id.equals(objId)) {
+      checker = true
+    }
+  })
+  return checker
 }

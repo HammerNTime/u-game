@@ -72,7 +72,7 @@ function edit(req, res) {
   .populate("games")
   .populate("reviews")
   .then(self => {
-    res.redirect("/profiles/edit" {
+    res.redirect("/profiles/edit", {
       title: "Edit Your Profile",
       self
     })

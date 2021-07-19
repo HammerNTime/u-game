@@ -8,6 +8,8 @@ export {
   create,
   newReview as new,
   show,
+  edit,
+  update,
 }
 
 function newReview(req, res) {
@@ -59,15 +61,13 @@ function show(req, res) {
   .populate("game")
   .populate("author")
   .then(review => {
-    let reviewId = review._id
     Profile.findById(req.params.id)
     .populate("reviews")
     .populate("ownedGames")
     .then(profile => {
       Profile.findById(req.user.profile._id)
       .then(self => {
-        const isSelf = findSelf(self, reviewId)  
-        console.log(isSelf)
+        const isSelf = findSelf(self, review)  
         res.render("reviews/show", {
           title: `${review.title}`,
           review,
@@ -80,10 +80,60 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  console.log("i work")
+  Review.findById(req.params.id)
+  .populate("game")
+  .populate("author")
+  .then(review => {
+    Profile.findById(req.params.id)
+    .populate("reviews")
+    .populate("ownedGames")
+    .then(profile => {
+      Profile.findById(req.user.profile._id)
+      .then(self => {
+        Game.findById(review.game._id)
+        .populate("ownedBy")
+        .then(game => {
+          const isSelf = findSelf(self, review)
+          if (isSelf){
+            res.render("reviews/edit", {
+              title: `Edit ${review.title}`,
+              review,
+              game,
+              isSelf,
+              self,
+            })
+          } else {
+            res.redirect(`/reviews/${req.params.id}`)
+          }
+        })
+      })
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/games")
+  })
+}
+
+function update(req, res){
+  Review.findById(req.params.id)
+  .then(review => {
+    if (review.author.equals(req.user.profile._id)){
+      review.update(req.body, {new: true})
+      .then(() => {
+        res.redirect(`/reviews/${req.params.id}`)
+      })
+    }
+  })
+}
+
+
 function findSelf(selfParam, objId){
   let checker = false
   selfParam.reviews.forEach(param => {
-    if (param._id.equals(objId)) {
+    if (param._id.equals(objId._id)) {
       checker = true
     }
   })

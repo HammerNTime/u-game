@@ -24,6 +24,10 @@
   <div>
     <%= review.content %> 
   </div>
+  <% if (isSelf) { %>
+    <a href="/reviews/<%= review._id %>/edit"><button>Edit</button></a>
+    <a href="#"><button>Delete</button></a>
+  <% } %> 
 </main>
 
 

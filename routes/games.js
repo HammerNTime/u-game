@@ -17,6 +17,7 @@ router.get("/shooter", gamesCtrl.shooter)
 router.get("/simulation", gamesCtrl.simulation)
 router.get("/sports", gamesCtrl.sports)
 
+router.get("/:id/edit", isLoggedIn, gamesCtrl.edit)
 router.get("/:id", gamesCtrl.show)
 router.post("/", isLoggedIn, gamesCtrl.create)
 router.put("/:id/ownGame", isLoggedIn, gamesCtrl.ownGame)

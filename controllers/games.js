@@ -16,6 +16,7 @@ export {
   shooter,
   simulation,
   sports,
+  edit,
 }
 
 function index(req, res){
@@ -151,5 +152,15 @@ function sports(req, res) {
   })
   .catch(err => {
     res.redirect("/games")
+  })
+}
+
+function edit(req, res){
+  Game.findById(req.params.id)
+  .then(game => {
+    res.render("games/edit", {
+      title: `Edit ${game.title}`,
+      game,
+    })
   })
 }

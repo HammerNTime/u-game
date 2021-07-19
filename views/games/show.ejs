@@ -31,11 +31,15 @@
         </a>
       </div>
     </div>
+
       <div class="game-details">
         <div class="game-title"><%= game.title %></div>
         <div class="game-description"><%= game.description %></div>
         <div class="game-genre"><%= game.genre %></div>
         <% if (user) { %> 
+          <a href="/games/<%= game._id %>/edit">
+            <button>Edit</button>
+          </a>
           <% game.ownedBy.forEach(owner => { %> 
             <a href="/profiles/<%= owner._id %> ">
               <div class="game-owned-by"><%= owner.name %></div>
@@ -63,7 +67,8 @@
         <% } %> 
       <div class="game-reviews"><%= review.content %></div>
       <% console.log(game.reviews) %> 
-    <% }) %>  
+    <% }) %> 
+  </div> 
 </main>
 
 <%- include('../partials/footer') %>

@@ -32,11 +32,14 @@
         <%= console.gamerTag %> 
       </div>
     <% }) %>  
-  
-  <a href="/profiles/<%= profile._id %>/add-console">
-    <button>Add a Console</button>
-  </a>
-
+  <% if (isSelf) { %> 
+    <a href="/profiles/<%= profile._id %>/add-console">
+      <button>Add a Console</button>
+    </a>
+    <a href="/profiles/<%= profile._id %>/edit">
+      <button>Edit Profile</button>
+    </a>
+  <% } %> 
   <div>
     <% profile.ownedGames.forEach(game => { %> 
     <a href="/games/<%= game._id %>">

@@ -6,29 +6,9 @@
   <div class="games-container">
     <div class="game-btn-container">
       <div class="game-image-container">
+        <a href="/games/<%= game._id %>">
         <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
-      </div>
-      <div class="add-review-btn-container">
-        <% if (user) { %> 
-          <% let owned = false %> 
-          <% game.ownedBy.forEach(owner => { %> 
-            <% if (owner.equals(user.profile)) { %>
-              <div>
-                You Own this Game
-              </div>
-              <% owned = true %> 
-              <% return %>  
-            <% } %>  
-          <% }) %> 
-          <% if (owned === false) { %> 
-            <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
-              <button type="submit">I Own This Game</button>
-            </form>
-          <% } %> 
-        <% } %> 
-        <a href="/reviews/<%= game._id %>/new">
-          <button>Review Game</button>
-        </a>
+        </a>    
       </div>
     </div>
   <h1><%= title %>: </h1>

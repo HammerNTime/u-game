@@ -10,6 +10,12 @@ export {
   create,
   show,
   ownGame,
+  action,
+  adventure,
+  rpg,
+  shooter,
+  simulation,
+  sports,
 }
 
 function index(req, res){
@@ -42,6 +48,7 @@ function create(req, res){
 function show(req, res) {
   Game.findById(req.params.id)
   .populate("reviews")
+  .populate("ownedBy")
   .then(game => {
     res.render("games/show", {
       title: game.title,
@@ -54,9 +61,95 @@ function show(req, res) {
 }
 
 function ownGame(req, res) {
-  console.log(req.user.profile)
-  Game.findById(req.params.id)
-  .then(game => {
-    res.redirect(`/games/${req.params.id}`)
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    Game.findById(req.params.id)
+    .then(game => {
+      profile.ownedGames.push(game._id)
+      game.ownedBy.push(req.user.profile._id)
+      profile.save()
+      game.save()
+      .then(() => {  
+        res.redirect(`/games`)
+      })
+    })
+  })
+}
+
+function action(req, res) {
+  Game.find({genre: "Action"})
+  .then(games => {
+    res.render("games/index", {
+      title: "Action Games",
+      games,
+    })
+  })
+  .catch(err => {
+    res.redirect("/games")
+  })
+}
+
+function adventure(req, res) {
+  Game.find({genre: "Adventure"})
+  .then(games => {
+    res.render("games/index", {
+      title: "Adventure Games",
+      games,
+    })
+  })
+  .catch(err => {
+    res.redirect("/games")
+  })
+}
+
+function rpg(req, res) {
+  Game.find({genre: "RPG"})
+  .then(games => {
+    res.render("games/index", {
+      title: "RPG Games",
+      games,
+    })
+  })
+  .catch(err => {
+    res.redirect("/games")
+  })
+}
+
+function shooter(req, res) {
+  Game.find({genre: "Shooter"})
+  .then(games => {
+    res.render("games/index", {
+      title: "Shooter Games",
+      games,
+    })
+  })
+  .catch(err => {
+    res.redirect("/games")
+  })
+}
+
+function simulation(req, res) {
+  Game.find({genre: "Simulation"})
+  .then(games => {
+    res.render("games/index", {
+      title: "Simulation Games",
+      games,
+    })
+  })
+  .catch(err => {
+    res.redirect("/games")
+  })
+}
+
+function sports(req, res) {
+  Game.find({genre: "Sports"})
+  .then(games => {
+    res.render("games/index", {
+      title: "Sports Games",
+      games,
+    })
+  })
+  .catch(err => {
+    res.redirect("/games")
   })
 }

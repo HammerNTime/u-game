@@ -3,19 +3,17 @@
 <%- include('../partials/nav') %>
 
 <nav class="index-nav">
-  <a href="#">All Games</a>
-  <a href="#">All Games</a>
-  <a href="#">All Games</a>
-  <a href="#">All Games</a>
-  <a href="#">All Games</a>
-  <a href="#">All Games</a>
-  <a href="#">All Games</a>
-  <a href="#">All Games</a>
+  <a href="/games">All Games</a>
+  <a href="/games/action">Action</a>
+  <a href="/games/adventure">Adventure</a>
+  <a href="/games/rpg">RPG</a>
+  <a href="/games/shooter">Shooter</a>
+  <a href="/games/simulation">Simulation</a>
+  <a href="/games/sports">Sports</a>
 </nav>
 <main>
   <div class="games-container">
     <% games.forEach((game) => { %> 
-      <% console.log(game) %> 
       <div class="game-image-container">
         <a href="/games/<%= game._id %>">
           <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">

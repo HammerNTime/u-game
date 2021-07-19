@@ -11,8 +11,8 @@ export {
 
 function newReview(req, res) {
   Game.findById(req.params.id)
+  .populate("ownedBy")
   .then(game => {
-    console.log(game)
     res.render("reviews/new", {
       title: `Review ${game.title}`,
       game

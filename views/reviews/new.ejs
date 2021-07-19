@@ -11,8 +11,23 @@
         </a>    
       </div>
       <div class="add-review-btn-container">
-        <button>Add Game</button>
-        <button>Review Game</button>
+        <% if (user) { %> 
+          <% let owned = false %> 
+          <% game.ownedBy.forEach(owner => { %> 
+            <% if (owner.equals(user.profile)) { %>
+              <div>
+                You Own this Game
+              </div>
+              <% owned = true %> 
+              <% return %>  
+            <% } %>  
+          <% }) %> 
+          <% if (owned === false) { %> 
+            <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
+              <button type="submit">Add Game</button>
+            </form>
+          <% } %> 
+        <% } %> 
       </div>
     </div>
       <div class="game-details">
@@ -20,7 +35,11 @@
         <div class="game-description"><%= game.description %></div>
         <div class="game-genre"><%= game.genre %></div>
         <% if (user) { %> 
-        <div class="game-owned-by"><%= game.ownedBy %></div>
+          <% game.ownedBy.forEach(owner => { %> 
+            <a href="/profiles/<%= owner._id %> ">
+              <div class="game-owned-by"><%= owner.name %></div>
+            </a>
+          <% }) %> 
         <% } %> 
       </div>
     </div>

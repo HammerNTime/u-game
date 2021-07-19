@@ -11,7 +11,6 @@ export {
 
 
 function show(req, res) {
-  console.log("i work")
   Profile.findById(req.params.id)
   .populate("reviews")
   .populate("ownedGames")

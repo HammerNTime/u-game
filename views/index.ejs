@@ -1,9 +1,28 @@
 <%- include('./partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/index.css">
 <%- include('./partials/nav') %>
 
 <main>
-  <h1></h1>
-
+  <!-- <img class="game-image" src="<%= game1.imageUrl %> " alt="game1.title">
+  <img src="<%= game2.imageUrl %> " alt="game2.title">
+  <img src="<%= game3.imageUrl %> " alt="game3.title"> -->
+  <div class="games-container">
+      <div class="game-image-container">
+        <a href="/games/<%= game1._id %>">
+          <img class="game-image" src="<%= game1.imageUrl %> " alt="game1.title">
+        </a>
+      </div>
+      <div class="game-image-container">
+        <a href="/games/<%= game2._id %>">
+          <img class="game-image" src="<%= game2.imageUrl %> " alt="game2.title">
+        </a>
+      </div>
+      <div class="game-image-container">
+        <a href="/games/<%= game3._id %>">
+          <img class="game-image" src="<%= game3.imageUrl %> " alt="game3.title">
+        </a>
+      </div>
+  </div>
 </main>
 
 <%- include('./partials/footer') %>

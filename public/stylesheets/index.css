@@ -1,0 +1,46 @@
+main {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.games-container {
+  display: flex;
+  margin-top: 10px;
+  align-items: flex-start;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.game-image {
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+}
+
+.index-nav {
+  background: linear-gradient(90deg, white 0%, rgba(0,212,255,1) 35%, rgb(17, 17, 182) 100%); 
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  height: 35px;
+  border-bottom: black 3px solid;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.index-nav a {
+  text-decoration: none;
+  margin: 4.5px 15px 0 15px;
+  color: rgb(0, 0, 0);
+  font-family: 'Hammersmith One', sans-serif;  
+  font-weight: 600;
+}
+
+.index-nav a:hover {
+  color: #ff0000;
+}
+
+.game-image:hover {
+  border: 3px solid rgb(255, 255, 255);
+}

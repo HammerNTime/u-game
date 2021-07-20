@@ -87,9 +87,11 @@ main {
 }
 
 .game-details {
+  display: flex;
   flex-wrap: wrap;
   font-size: 20px;
   width: 700px;
+  align-items: stretch;
 }
 
 .game-title {
@@ -124,7 +126,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
+  width: 700px;
 }
 
 .owner {

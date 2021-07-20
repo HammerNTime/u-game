@@ -10,6 +10,7 @@ nav {
   margin: 0;
   height: 75px;
   border-bottom: black 3px solid;
+  min-width: 1000px;
 }
 
 nav div a {

@@ -20,7 +20,7 @@ main {
   flex-wrap: wrap;
   margin: 30px 0 0 0;
   border: 3px black solid;
-  padding: 30px;
+  padding: 35px;
   background-color: rgb(182, 237, 255);
 
 }
@@ -62,7 +62,7 @@ main {
 
 .edit-btn-container {
   display: flex;
-  width: 665px;
+  width: 676px;
 }
 
 .edit-btn {

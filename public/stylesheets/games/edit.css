@@ -1,21 +1,37 @@
 main {
   display: flex;
-  justify-content: left;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-game-text {
+  font-family: 'Tourney', cursive;
+  min-width: 1000px;
+  text-align: center;
 }
 
 .games-container {
   display: flex;
   margin-top: 10px;
   align-items: flex-start;
-  justify-content: left;
-  width: 100%;
+  justify-content: center;
+  min-width: 1000px;
+}
+
+.game-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  margin-top: 18px;
 }
 
 .game-image {
   width: 220px;
   height: 300px;
-  margin: 30px 0 0 50px;
 }
 
 .game-details {
@@ -28,4 +44,78 @@ main {
   display: flex;
   justify-content: space-between;
   margin: 5px 0 0 50px;
+}
+
+
+.add-game-text {
+  font-family: 'Tourney', cursive;
+}
+
+.add-game-form {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  padding: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgb(182, 237, 255);
+}
+
+.title-container, .genre-container, .image-url-container {
+  display: flex;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 20px;
+}
+.description-container {
+  display: flex;
+  width: 400px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 0 20px;
+}
+
+.title-label, .description-label, .genre-label, .image-url-label {
+  font-size: 18px;
+  width: 100px;
+  text-align: left;
+  margin-right: 20px;
+}
+
+.title-input, .description-input, .genre-input, .image-url-input {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  word-break: normal;
+  font-size: 14px;
+  font-family: 'Hammersmith One', sans-serif;  
+
+}
+
+.genre-select {
+  width: 200px;
+  height: 21px;
+  font-family: 'Hammersmith One', sans-serif; 
+}
+
+.description-input {
+  min-height: 100px;
+}
+
+.form-submit-btn {
+  font-size: 16px;
+  background-color: rgb(255, 208, 99);
+  border: 1px solid black;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 6px;
+  font-family: 'Tourney', cursive;
+
+}
+
+.form-submit-btn:hover {
+  cursor: pointer;
+  background-color: rgb(88, 0, 0);
+  color: white;
 }

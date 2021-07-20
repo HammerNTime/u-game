@@ -159,7 +159,7 @@ main {
 }
 
 .review-text {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .reviews-container {
@@ -169,7 +169,21 @@ main {
 }
 
 .review-content-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   text-align: center;
-  width: 550px;
-  margin-bottom: 10px;
+  width: 500px;
+  margin: 0 25px 20px 25px;
+}
+
+.review-title {
+  font-size: 18px;
+}
+.review-stars {
+  font-size: 16px;
+}
+
+.game-reviews {
+  font-size: 16px;
 }

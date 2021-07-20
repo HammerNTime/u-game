@@ -63,22 +63,24 @@
     <div class="reviews-container">
       <% game.reviews.forEach(function(review) { %>
         <div class="review-content-container">
-          <div>
+          <div class="review-title">
             <a href="/reviews/<%= review._id %>">
               <%= review.title %> 
             </a>
           </div>
-          <% if (review.rating === "5") { %>   
-              <div>⭐⭐⭐⭐⭐</div>
+          <div class="review-stars">
+            <% if (review.rating === "5") { %>   
+              ⭐⭐⭐⭐⭐
             <% } else if (review.rating === "4") { %>
-              <div>⭐⭐⭐⭐</div> 
+              ⭐⭐⭐⭐ 
             <% } else if (review.rating === "3") { %> 
-              <div>⭐⭐⭐</div> 
+              ⭐⭐⭐ 
             <% } else if (review.rating === "2") { %> 
-              <div>⭐⭐</div> 
+              ⭐⭐ 
             <% } else if (review.rating === "1") { %> 
-              <div>⭐</div> 
+              ⭐ 
             <% } %> 
+          </div>
           <div class="game-reviews"><%= review.content %></div>
           <% console.log(game.reviews) %> 
         </div>

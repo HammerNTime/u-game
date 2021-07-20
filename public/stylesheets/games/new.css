@@ -5,10 +5,14 @@ main {
   align-items: center;
 }
 
+.add-game-text {
+  font-family: 'Tourney', cursive;
+}
+
 .add-game-form {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  /* width: 600px; */
   border: 3px solid black;
   padding: 40px;
   justify-content: flex-start;
@@ -58,3 +62,19 @@ main {
   min-height: 100px;
 }
 
+.form-submit-btn {
+  font-size: 16px;
+  background-color: rgb(255, 208, 99);
+  border: 1px solid black;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 6px;
+  font-family: 'Tourney', cursive;
+
+}
+
+.form-submit-btn:hover {
+  cursor: pointer;
+  background-color: rgb(88, 0, 0);
+  color: white;
+}

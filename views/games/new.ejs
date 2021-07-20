@@ -5,17 +5,17 @@
 <main>
   <h1>Add A New Game</h1>
     <form class="add-game-form" id="add-game-form" action="/games" method="POST">
-      <div>
-        <label for="title-input">Title:</label>
-        <input type="text" name="title" id="title-input">
+      <div class="title-container">
+        <label for="title-input" class="title-label">Title:</label>
+        <input type="text" name="title" id="title-input" class="title-input">
       </div>
-      <div>
-        <label for="description-input">Description:</label>
-        <input type="text" name="description" id="description-input">
+      <div class="description-container">
+        <label for="description-input" class="description-label">Description:</label>
+        <input type="text" name="description" id="description-input" class="description-input">
       </div>
-      <div>
-        <label for="genre-input">Genre:</label>
-        <select name="genre" id="genre-input">
+      <div class="genre-container">
+        <label for="genre-input" class="genre-label">Genre:</label>
+        <select name="genre" id="genre-input" class="genre-select">
           <option value="Action">Action</option>
           <option value="Adventure">Adventure</option>
           <option value="RPG">RPG</option>
@@ -24,11 +24,11 @@
           <option value="Sports">Sports</option>
         </select>
       </div>
-      <div>
-        <label for="image-input">Image:</label>
-        <input type="text" name="imageUrl">
+      <div class="image-url-container">
+        <label for="image-url-input" class="image-url-label">Image URL:</label>
+        <input type="text" name="imageUrl" id="image-url-input" class="image-url-input">
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" class="form-submit-btn">Submit</button>
     </form>
 
 </main>

@@ -10,5 +10,32 @@ main {
   flex-direction: column;
   width: 600px;
   border: 3px solid black;
-  padding: 50px;
+  padding: 40px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title-container, .description-container, .genre-container, .image-url-container {
+  display: flex;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 10px;
+}
+
+.title-label, .description-label, .genre-label, .image-url-label {
+  font-size: 18px;
+  width: 100px;
+  text-align: left;
+  margin-right: 20px;
+}
+
+.title-input, .description-input, .genre-input, .image-url-input {
+  width: 180px;
+}
+
+.genre-select {
+  width: 180px;
+  height: 21px;
+  text-align: center;
 }

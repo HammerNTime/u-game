@@ -29,7 +29,7 @@
       <% if (profile.twitchUrl) { %> 
         <div class="profile-twitch">
           <a href="<%= profile.twitchUrl %> ">
-            Twitch Link
+            Twitch
           </a>
         </div>
       <% } %> 
@@ -57,7 +57,7 @@
 
   <div class="lower-container">
     <div class="game-img-text-container">
-      <h2>Owned Games</h3>
+      <h2 class="owned-game-text-div">Owned Games</h3>
       <div class="game-img-container">
         <% profile.ownedGames.forEach(game => { %> 
         <a href="/games/<%= game._id %>" class="game-img-url">
@@ -66,28 +66,36 @@
         <% }) %> 
       </div>
     </div>
-    <div class="review-container">
-      <% profile.reviews.forEach(review => { %> 
-        <div>
-          <a href="/reviews/<%= review._id %>">
-            <%= review.title %> 
-          </a>
-        </div>
-        <% if (review.rating === "5") { %>   
-          <div>⭐⭐⭐⭐⭐</div>
-        <% } else if (review.rating === "4") { %>
-          <div>⭐⭐⭐⭐</div> 
-        <% } else if (review.rating === "3") { %> 
-          <div>⭐⭐⭐</div> 
-        <% } else if (review.rating === "2") { %> 
-          <div>⭐⭐</div> 
-        <% } else if (review.rating === "1") { %> 
-          <div>⭐</div> 
-        <% } %> 
-        <div>
-          <%= review.content %> 
-        </div>
-      <% }) %>       
+    <div class="review-text-container">
+      <h2 class="review-text-div">Reviews</h2>
+      <div class="review-container">
+        <% profile.reviews.forEach(review => { %> 
+          <div>
+            <a href="/reviews/<%= review._id %>">
+              <div class="review-title">
+                <%= review.title %> 
+              </div>
+            </a>
+            <div class="review-game-title"><%= review.gameTitle %> </div>
+          </div>
+          <div class="review-stars">
+            <% if (review.rating === "5") { %>   
+              ⭐⭐⭐⭐⭐
+            <% } else if (review.rating === "4") { %>
+              ⭐⭐⭐⭐ 
+            <% } else if (review.rating === "3") { %> 
+              ⭐⭐⭐ 
+            <% } else if (review.rating === "2") { %> 
+              ⭐⭐ 
+            <% } else if (review.rating === "1") { %> 
+              ⭐ 
+            <% } %> 
+          </div>
+          <div>
+            <%= review.content %> 
+          </div>
+        <% }) %>       
+      </div>
     </div>
   </div>
 </main>

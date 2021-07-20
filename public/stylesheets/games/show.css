@@ -1,31 +1,96 @@
 main {
   display: flex;
-  justify-content: left;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .games-container {
   display: flex;
-  margin-top: 10px;
-  align-items: flex-start;
-  justify-content: left;
-  width: 100%;
+  margin-top: 30px;
+  justify-content: center;
+  width: 1000px;
+  border: 3px solid black;
+  padding: 30px;
+  background-color: rgb(182, 237, 255);
+
+}
+
+.game-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
 }
 
 .game-image {
   width: 220px;
   height: 300px;
-  margin: 30px 0 0 50px;
+  border: 2px black solid;
+}
+
+
+.add-review-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.owned-game {
+  width: 220px;
+  padding-top: 2px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 16px;
+  background-color: rgb(133, 0, 0);
+  color: white;
+}
+
+.not-owned-game {
+  margin-top: 2px;
+  width: 220px;
+  padding-top: 2px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 16px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+
+.not-owned-game:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.review-game {
+  margin-top: 2px;
+  width: 220px;
+  padding-top: 2px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 16px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+
+.review-game:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 .game-details {
   flex-wrap: wrap;
   font-size: 20px;
-  margin: 32px 0 0 25px;
+  width: 700px;
 }
 
-.add-review-btn-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 0 0 50px;
+.game-title {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Tourney', cursive;
 }

@@ -10,7 +10,7 @@ const router = Router()
 
 router.get("/:id/new", isLoggedIn, reviewsCtrl.new)
 router.get("/:id/edit", isLoggedIn, reviewsCtrl.edit)
-router.get("/:id", reviewsCtrl.show)
+router.get("/:id", isLoggedIn, reviewsCtrl.show)
 router.post("/:id", isLoggedIn, reviewsCtrl.create)
 router.put("/:id", isLoggedIn, reviewsCtrl.update)
 router.delete("/:reviewId", isLoggedIn, reviewsCtrl.delete)

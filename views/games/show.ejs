@@ -13,7 +13,7 @@
           <% let owned = false %> 
           <% game.ownedBy.forEach(owner => { %> 
             <% if (owner.equals(user.profile)) { %>
-              <div>
+              <div class="owned-game">
                 You Own this Game
               </div>
               <% owned = true %> 
@@ -22,12 +22,12 @@
           <% }) %> 
           <% if (owned === false) { %> 
             <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
-              <button type="submit">I Own This Game</button>
+              <button type="submit" class="not-owned-game">I Own This Game</button>
             </form>
           <% } %> 
         <% } %> 
         <a href="/reviews/<%= game._id %>/new">
-          <button>Review Game</button>
+          <button class="review-game">Review Game</button>
         </a>
       </div>
     </div>
@@ -37,9 +37,6 @@
         <div class="game-description"><%= game.description %></div>
         <div class="game-genre"><%= game.genre %></div>
         <% if (user) { %> 
-          <a href="/games/<%= game._id %>/edit">
-            <button>Edit</button>
-          </a>
           <% game.ownedBy.forEach(owner => { %> 
             <a href="/profiles/<%= owner._id %> ">
               <div class="game-owned-by"><%= owner.name %></div>
@@ -48,6 +45,11 @@
         <% } %> 
       </div>
     </div>
+    <% if (user) { %> 
+      <a href="/games/<%= game._id %>/edit">
+        <button>Edit</button>
+      </a>
+    <% } %> 
     <% game.reviews.forEach(function(review) { %>
       <div>
         <a href="/reviews/<%= review._id %>">

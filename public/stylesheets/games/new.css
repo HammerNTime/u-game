@@ -13,14 +13,22 @@ main {
   padding: 40px;
   justify-content: flex-start;
   align-items: center;
+  background-color: rgb(182, 237, 255);
 }
 
-.title-container, .description-container, .genre-container, .image-url-container {
+.title-container, .genre-container, .image-url-container {
   display: flex;
-  width: 300px;
+  width: 400px;
   justify-content: center;
   align-items: center;
-  margin: 0 0 10px;
+  margin: 0 0 20px;
+}
+.description-container {
+  display: flex;
+  width: 400px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 0 20px;
 }
 
 .title-label, .description-label, .genre-label, .image-url-label {
@@ -31,11 +39,22 @@ main {
 }
 
 .title-input, .description-input, .genre-input, .image-url-input {
-  width: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  word-break: break-all;
+  font-size: 14px;
+  font-family: 'Hammersmith One', sans-serif;  
+
 }
 
 .genre-select {
-  width: 180px;
+  width: 200px;
   height: 21px;
-  text-align: center;
+  font-family: 'Hammersmith One', sans-serif; 
 }
+
+.description-input {
+  min-height: 100px;
+}
+

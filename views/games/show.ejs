@@ -3,52 +3,60 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div class="games-container">
-    <div class="game-btn-container">
-      <div class="game-image-container">
-        <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
-      </div>
-      <div class="add-review-btn-container">
-        <% if (user) { %> 
-          <% let owned = false %> 
-          <% game.ownedBy.forEach(owner => { %> 
-            <% if (owner.equals(user.profile)) { %>
-              <div class="owned-game">
-                You Own this Game
-              </div>
-              <% owned = true %> 
-              <% return %>  
-            <% } %>  
-          <% }) %> 
-          <% if (owned === false) { %> 
-            <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
-              <button type="submit" class="not-owned-game">I Own This Game</button>
-            </form>
+  <div class="full-container">
+
+    <div class="games-container">
+      <div class="game-btn-container">
+        <div class="game-image-container">
+          <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
+        </div>
+        <div class="add-review-btn-container">
+          <% if (user) { %> 
+            <% let owned = false %> 
+            <% game.ownedBy.forEach(owner => { %> 
+              <% if (owner.equals(user.profile)) { %>
+                <div class="owned-game">
+                  You Own this Game
+                </div>
+                <% owned = true %> 
+                <% return %>  
+              <% } %>  
+            <% }) %> 
+            <% if (owned === false) { %> 
+              <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
+                <button type="submit" class="not-owned-game">I Own This Game</button>
+              </form>
+            <% } %> 
           <% } %> 
-        <% } %> 
-        <a href="/reviews/<%= game._id %>/new">
-          <button class="review-game">Review Game</button>
+          <a href="/reviews/<%= game._id %>/new">
+            <button class="review-game">Review Game</button>
+          </a>
+        </div>
+      </div>
+  
+        <div class="game-details">
+          <div class="game-title"><%= game.title %></div>
+          <div class="game-genre"><%= game.genre %></div>
+          <div class="game-description"><%= game.description %></div>
+          <% if (user) { %> 
+            <div class="owner-container">
+              <div class="owned-by-text">Owned By</div>
+              <% game.ownedBy.forEach(owner => { %> 
+                <a href="/profiles/<%= owner._id %> " class="owner">
+                  <div class="owner"><%= owner.name %></div>
+                </a>
+              <% }) %> 
+            </div>
+          <% } %> 
+        </div>
+      </div>
+  </div>
+    <% if (user) { %> 
+      <div class="edit-btn-container">
+        <a href="/games/<%= game._id %>/edit">
+          <button class="edit-btn">Edit</button>
         </a>
       </div>
-    </div>
-
-      <div class="game-details">
-        <div class="game-title"><%= game.title %></div>
-        <div class="game-description"><%= game.description %></div>
-        <div class="game-genre"><%= game.genre %></div>
-        <% if (user) { %> 
-          <% game.ownedBy.forEach(owner => { %> 
-            <a href="/profiles/<%= owner._id %> ">
-              <div class="game-owned-by"><%= owner.name %></div>
-            </a>
-          <% }) %> 
-        <% } %> 
-      </div>
-    </div>
-    <% if (user) { %> 
-      <a href="/games/<%= game._id %>/edit">
-        <button>Edit</button>
-      </a>
     <% } %> 
     <% game.reviews.forEach(function(review) { %>
       <div>

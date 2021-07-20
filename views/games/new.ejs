@@ -1,26 +1,36 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/games/new.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>NEW GAME</h1>
-  <form id="add-game-form" action="/games" method="POST">
-    <label for="title-input">Title:</label>
-    <input type="text" name="title" id="title-input">
-    <label for="description-input">Description:</label>
-    <input type="text" name="description" id="description-input">
-    <label for="genre-input">Genre:</label>
-    <select name="genre" id="genre-input">
-      <option value="Action">Action</option>
-      <option value="Adventure">Adventure</option>
-      <option value="RPG">RPG</option>
-      <option value="Shooter">Shooter</option>
-      <option value="Simulation">Simulation</option>
-      <option value="Sports">Sports</option>
-    </select>
-    <label for="image-input">Image:</label>
-    <input type="text" name="imageUrl">
-    <button type="submit">Submit</button>
-  </form>
+  <h1>Add A New Game</h1>
+    <form class="add-game-form" id="add-game-form" action="/games" method="POST">
+      <div>
+        <label for="title-input">Title:</label>
+        <input type="text" name="title" id="title-input">
+      </div>
+      <div>
+        <label for="description-input">Description:</label>
+        <input type="text" name="description" id="description-input">
+      </div>
+      <div>
+        <label for="genre-input">Genre:</label>
+        <select name="genre" id="genre-input">
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="RPG">RPG</option>
+          <option value="Shooter">Shooter</option>
+          <option value="Simulation">Simulation</option>
+          <option value="Sports">Sports</option>
+        </select>
+      </div>
+      <div>
+        <label for="image-input">Image:</label>
+        <input type="text" name="imageUrl">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
 </main>
 
 <%- include('../partials/footer') %>

@@ -73,7 +73,7 @@ function ownGame(req, res) {
       profile.save()
       game.save()
       .then(() => {  
-        res.redirect(`/games`)
+        res.redirect(`/games/${req.params.id}`)
       })
     })
   })

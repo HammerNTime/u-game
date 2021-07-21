@@ -3,52 +3,54 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <% profiles.forEach(profile => { %>
-    <a href="/profiles/<%= profile._id %>" class="profile-anchor">
-      <div class="profile-container">
-        <div class="avatar-container">
-          <% if (profile.avatar) { %>
-            <img 
-              class="profile-avatar"
-              src="<%= profile.avatar %>"
-              alt="<%= profile.name %> avatar"
-            >
-          <% } else { %>
-            <div>
-              <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
-            </div>
-          <% } %> 
-        </div>
-        <div class="profile-content-container">
-          <div class="profile-name">
-            <%= profile.name %> 
-          </div>
-          <% if (profile.bio) { %>
-            <div class="profile-bio">
-              <%= profile.bio %> 
-            </div>
-          <% } %> 
-          <% if (profile.twitchUrl.length) { %> 
-            <div class="profile-twitch">
-              <a href="<%= profile.twitchUrl %> ">
-                Twitch
-              </a>
-            </div>
-          <% } %> 
-          <div class="console-container">
-            <% profile.console.forEach(console => { %>
-              <div class="console-container-child">
-                <div>
-                  <%= console.system %> 
-                </div>
-                <div>
-                  <%= console.gamerTag %> 
-                </div>
+  <div class="all-profile-container">
+    <% profiles.forEach(profile => { %>
+      <a href="/profiles/<%= profile._id %>" class="profile-anchor">
+        <div class="profile-container">
+          <div class="avatar-container">
+            <% if (profile.avatar) { %>
+              <img 
+                class="profile-avatar"
+                src="<%= profile.avatar %>"
+                alt="<%= profile.name %> avatar"
+              >
+            <% } else { %>
+              <div>
+                <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
               </div>
-            <% }) %>  
+            <% } %> 
+          </div>
+          <div class="profile-content-container">
+            <div class="profile-name">
+              <%= profile.name %> 
+            </div>
+            <% if (profile.bio) { %>
+              <div class="profile-bio">
+                <%= profile.bio %> 
+              </div>
+            <% } %> 
+            <% if (profile.twitchUrl.length) { %> 
+              <div class="profile-twitch">
+                <a href="<%= profile.twitchUrl %> ">
+                  Twitch
+                </a>
+              </div>
+            <% } %> 
+            <div class="console-container">
+              <% profile.console.forEach(console => { %>
+                <div class="console-container-child">
+                  <div>
+                    <%= console.system %> 
+                  </div>
+                  <div>
+                    <%= console.gamerTag %> 
+                  </div>
+                </div>
+              <% }) %>  
+            </div>
           </div>
         </div>
-      </div>
-    </a>
-  <% }) %> 
+      </a>
+    <% }) %> 
+  </div>
 </main>

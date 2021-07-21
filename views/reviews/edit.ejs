@@ -81,7 +81,7 @@
         <textarea type="text" name="content" class="content-input"><%= review.content %></textarea>
       </div>
       <div class="edit-delete-btn-container">
-        <button type="submit" class="review-form-btn">Submit</button>
+        <button type="submit" class="review-form-btn">Update</button>
       </form>
       <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" id="delete-form">
         <button type="submit" class="review-delete-btn" form="delete-form">DELETE</button>

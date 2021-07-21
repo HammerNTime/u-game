@@ -29,11 +29,15 @@
             </div>
           </div>
           <% if (user) { %> 
-          <div class="profile-btn-container">
-            <a href="/profiles/<%= user?.profile._id %>">
-              <button class="profile-btn">Profile</button>
-            </a>
-          </div>
+            <div class="drop-menu">
+              <a href="/profiles">
+                <button class="drop-btn">Profiles</button>
+              </a>
+              <div class="drop-content">
+                <a href="/profiles" class="drop-btn-1">All Profiles</a>
+                <a href="/profiles/<%= user?.profile._id %>" class="drop-btn-2">Your Profile</a>
+              </div>
+            </div>
           <% } %> 
   
           <div class="nav-btns">

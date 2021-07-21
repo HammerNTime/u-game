@@ -82,6 +82,7 @@ function ownGame(req, res) {
 
 function action(req, res) {
   Game.find({genre: "Action"})
+  .sort("title")
   .then(games => {
     res.render("games/index", {
       title: "Action Games",
@@ -95,6 +96,7 @@ function action(req, res) {
 
 function adventure(req, res) {
   Game.find({genre: "Adventure"})
+  .sort("title")
   .then(games => {
     res.render("games/index", {
       title: "Adventure Games",
@@ -108,6 +110,7 @@ function adventure(req, res) {
 
 function rpg(req, res) {
   Game.find({genre: "RPG"})
+  .sort("title")
   .then(games => {
     res.render("games/index", {
       title: "RPG Games",
@@ -134,6 +137,7 @@ function shooter(req, res) {
 
 function simulation(req, res) {
   Game.find({genre: "Simulation"})
+  .sort("title")
   .then(games => {
     res.render("games/index", {
       title: "Simulation Games",
@@ -147,6 +151,7 @@ function simulation(req, res) {
 
 function sports(req, res) {
   Game.find({genre: "Sports"})
+  .sort("title")
   .then(games => {
     res.render("games/index", {
       title: "Sports Games",

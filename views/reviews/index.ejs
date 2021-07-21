@@ -4,40 +4,40 @@
 
 <main>
   <div class="all-review-container">
-    <% reviews.forEach(review => { %> 
-    <div class="full-review-container">
-      <div class="game-image container">
-          <img class="game-image" src="<%= review.game.imageUrl %> " alt="image">
-      </div>
-      <div class="review-content-container">
-        <div class="review-title">
-            <%= review.title %> 
+    <% reviews.forEach(review => { %>
+      <a class="review-anchor" href="/reviews/<%= review._id %>">
+        <div class="full-review-container">
+          <div class="game-image container">
+              <img class="game-image" src="<%= review.game.imageUrl %> " alt="image">
+          </div>
+          <div class="review-content-container">
+            <div class="review-title">
+                <%= review.title %> 
+            </div>
+            <div class="review-author">
+              By: 
+                <%= review.author.name %>
+            </div>
+            <div class="review-rating">
+              <% if (review.rating === "5") { %>   
+                ⭐⭐⭐⭐⭐
+              <% } else if (review.rating === "4") { %>
+                ⭐⭐⭐⭐ 
+              <% } else if (review.rating === "3") { %> 
+                ⭐⭐⭐ 
+              <% } else if (review.rating === "2") { %> 
+                ⭐⭐ 
+              <% } else if (review.rating === "1") { %> 
+                ⭐ 
+              <% } %> 
+            </div>
+            <div class="review-content">
+              <%= review.content %> 
+            </div>
+          </div>
         </div>
-        <div class="review-author">
-          By: 
-          <a class="review-author-a" href="/profiles/<%= review.author._id %>">
-            <%= review.author.name %>
-          </a>
-        </div>
-        <div class="review-rating">
-          <% if (review.rating === "5") { %>   
-            ⭐⭐⭐⭐⭐
-          <% } else if (review.rating === "4") { %>
-            ⭐⭐⭐⭐ 
-          <% } else if (review.rating === "3") { %> 
-            ⭐⭐⭐ 
-          <% } else if (review.rating === "2") { %> 
-            ⭐⭐ 
-          <% } else if (review.rating === "1") { %> 
-            ⭐ 
-          <% } %> 
-        </div>
-        <div class="review-content">
-          <%= review.content %> 
-        </div>
-      </div>
-    </div>
-    <% }) %> 
+        <% }) %> 
+      </a> 
   </div>
 </main>
 

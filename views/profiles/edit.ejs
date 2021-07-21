@@ -1,36 +1,48 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/profiles/edit.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <% if (profile.avatar) { %>
-    <div>
-      <img 
-        class="profile-avatar"
-        src="<%= profile.avatar %>"
-        alt="<%= profile.name %> avatar"
-      >
+  <h1 class="profile-name-text"><%= title %> </h1>
+  <div class="edit-profile-container">
+    <% if (profile.avatar) { %>
+      <div class="profile-avatar-container">
+        <img 
+          class="profile-avatar"
+          src="<%= profile.avatar %>"
+          alt="<%= profile.name %> avatar"
+        >
+      </div>
+    <% } else { %>
+      <div class="profile-avatar-container">
+        <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
+      </div>
+    <% } %> 
+    <div class="form-console-btn-container">
+      <form class="edit-form" action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+        <div class="name-container">
+          <label for="name-input" class="name-label">Name:</label>
+          <input type="text" name="name" value="<%= profile.name %>" id="name-input" class="name-input" required>
+        </div>
+        <div class="bio-container">
+          <label for="bio-input" class="bio-label">Bio:</label>
+          <textarea type="text" name="bio" value="<%= profile.bio %>" id="bio-input" class="bio-input"></textarea>
+        </div>
+        <div class="twitch-container">
+          <label for="twitch-url-input" class="twitch-url-label">Twitch Link:</label>
+          <input type="text" name="twitchUrl" value="<%= profile.twitchUrl %>" id="twitch-url-input" class="twitch-url-input">
+        </div>
+        <div class="avatar-url-container">
+          <label for="avatar-url-input" class="avatar-url-label">Avatar Link:</label>
+          <input type="text" name="avatar" value="<%= profile.avatar %>" id="avatar-url-input" class="avatar-url-input">
+        </div>
+        <button type="submit" class="update-profile-btn">Update</button>
+      </form>
+      <a href="/profiles/<%= profile._id %>/add-console">
+        <button>Add a Console</button>
+      </a>
     </div>
-  <% } else { %>
-    <div>
-      <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
-    </div>
-  <% } %> 
-  <h1><%= title %> </h1>
-
-  <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
-    <label for="name-input">Name:</label>
-    <input type="text" name="name" value="<%= profile.name %>" id="name-input">
-    <label for="bio-input">Bio:</label>
-    <input type="text" name="bio" value="<%= profile.bio %>" id="bio-input">
-    <label for="twitch-url-input">Twitch Link:</label>
-    <input type="text" name="twitchUrl" value="<%= profile.twitchUrl %>" id="twitch-url-input">
-    <label for="avatar-url-input">Avatar Link:</label>
-    <input type="text" name="avatar" value="<%= profile.avatar %>" id="avatar-url-input">
-    <button type="submit">Update</button>
-  </form>
-  <a href="/profiles/<%= profile._id %>/add-console">
-    <button>Add a Console</button>
-  </a>
+  </div>
 </main>
 
 

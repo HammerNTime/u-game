@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/reviews/new.css">
+<link rel="stylesheet" href="/stylesheets/reviews/edit.css">
 <%- include('../partials/nav') %>
 
 <main>
@@ -80,8 +80,13 @@
         <label for="content-input" class="content-label">Review:</label>
         <textarea type="text" name="content" class="content-input"><%= review.content %></textarea>
       </div>
-      <button type="submit" class="review-form-btn">Submit</button>
-    </form>
+      <div class="edit-delete-btn-container">
+        <button type="submit" class="review-form-btn">Submit</button>
+      </form>
+      <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" id="delete-form">
+        <button type="submit" class="review-delete-btn" form="delete-form">DELETE</button>
+      </form>  
+    </div>
 </main>
 
 <%- include('../partials/footer') %>

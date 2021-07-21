@@ -28,9 +28,6 @@
   </div>
   <% if (isSelf) { %>
     <a href="/reviews/<%= review._id %>/edit"><button>Edit</button></a>
-    <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete</button>
-    </form>
   <% } %> 
 </main>
 

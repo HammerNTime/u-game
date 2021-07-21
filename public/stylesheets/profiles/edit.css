@@ -5,13 +5,14 @@ main {
   align-items: center;
 }
 
-.edit-game-text {
+.profile-name-text {
   font-family: 'Tourney', cursive;
   min-width: 1000px;
   text-align: center;
 }
 
-.games-container {
+
+.edit-profile-container {
   display: flex;
   margin-top: 10px;
   align-items: flex-start;
@@ -19,45 +20,23 @@ main {
   min-width: 1000px;
 }
 
-.game-btn-container {
+.profile-avatar-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   width: 400px;
-  margin-top: 22px;
 }
 
-.game-image {
-  width: 220px;
+.profile-avatar {
+  width: 300px;
   height: 300px;
   border: 2px solid black;
+  margin-top: 35px;
 }
 
-.game-image:hover {
-  cursor: pointer;
-  border: 3px solid white;
-}
-
-.game-details {
-  flex-wrap: wrap;
-  font-size: 20px;
-  margin: 32px 0 0 25px;
-}
-
-.add-review-btn-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 0 0 50px;
-}
-
-
-.add-game-text {
-  font-family: 'Tourney', cursive;
-}
-
-.add-game-form {
+.edit-form {
   display: flex;
   flex-direction: column;
   border: 3px solid black;
@@ -67,14 +46,15 @@ main {
   background-color: rgb(182, 237, 255);
 }
 
-.title-container, .genre-container, .image-url-container {
+.name-container, .twitch-container, .avatar-url-container {
   display: flex;
   width: 400px;
   justify-content: center;
   align-items: center;
   margin: 0 0 20px;
 }
-.description-container {
+
+.bio-container {
   display: flex;
   width: 400px;
   justify-content: center;
@@ -82,14 +62,14 @@ main {
   margin: 0 0 20px;
 }
 
-.title-label, .description-label, .genre-label, .image-url-label {
+.name-label, .bio-label, .twitch-url-label, .avatar-url-label {
   font-size: 18px;
   width: 100px;
   text-align: left;
   margin-right: 20px;
 }
 
-.title-input, .description-input, .genre-input, .image-url-input {
+.name-input, .bio-input, .twitch-url-input, .avatar-url-input {
   display: flex;
   flex-wrap: wrap;
   width: 200px;
@@ -98,17 +78,11 @@ main {
   font-family: 'Hammersmith One', sans-serif;  
 }
 
-.genre-select {
-  width: 200px;
-  height: 21px;
-  font-family: 'Hammersmith One', sans-serif; 
-}
-
-.description-input {
+.bio-input {
   min-height: 100px;
 }
 
-.form-submit-btn {
+.update-profile-btn {
   font-size: 16px;
   background-color: rgb(255, 208, 99);
   border: 1px solid black;
@@ -119,24 +93,8 @@ main {
 
 }
 
-.form-submit-btn:hover {
+.update-profile-btn:hover {
   cursor: pointer;
   background-color: rgb(88, 0, 0);
   color: white;
-}
-
-.delete-game-btn {
-  width: 220px;
-  padding-top: 2px;
-  height: 25px;
-  text-align: center;
-  border: 1px solid black;
-  font-size: 16px;
-  background-color: rgb(133, 0, 0);
-  color: white;
-}
-
-.delete-game-btn:hover {
-  cursor: pointer;
-  background-color: red;
 }

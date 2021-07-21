@@ -23,6 +23,7 @@ export {
 
 function index(req, res){
   Game.find({})
+  .sort("title")
   .then(games => {
     res.render("games/index", {
       title: "All Games",

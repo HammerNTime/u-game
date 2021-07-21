@@ -204,6 +204,12 @@ main {
   word-wrap: normal;
 }
 
+.edit-delete-btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 440px;
+}
+
 .review-form-btn {
   font-size: 16px;
   background-color: rgb(255, 208, 99);
@@ -211,11 +217,27 @@ main {
   border-radius: 5px;
   padding: 6px;
   font-family: 'Tourney', cursive;
-
 }
 
 .review-form-btn:hover {
   cursor: pointer;
   background-color: rgb(88, 0, 0);
   color: white;
+}
+
+
+.review-delete-btn {
+  font-size: 16px;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 6px;
+  font-family: 'Tourney', cursive;
+}
+
+.review-delete-btn:hover {
+  cursor: pointer;
+  background-color: black;
+  color: red;
+  border-color: red;
 }

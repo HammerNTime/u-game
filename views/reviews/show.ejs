@@ -10,24 +10,29 @@
       </a>
     </div>
     <div class="review-content-container">
-      <div>
-        <a href="/reviews/<%= review._id %>">
+      <div class="review-title">
           <%= review.title %> 
+      </div>
+      <div class="review-author">
+        By: 
+        <a href="/profiles/<%= review.author._id %>">
+          <%= review.author.name %>
         </a>
       </div>
-      <div>By: <%= review.author.name %> </div>
-      <% if (review.rating === "5") { %>   
-        <div>⭐⭐⭐⭐⭐</div>
-      <% } else if (review.rating === "4") { %>
-        <div>⭐⭐⭐⭐</div> 
-      <% } else if (review.rating === "3") { %> 
-        <div>⭐⭐⭐</div> 
-      <% } else if (review.rating === "2") { %> 
-        <div>⭐⭐</div> 
-      <% } else if (review.rating === "1") { %> 
-        <div>⭐</div> 
-      <% } %> 
-      <div>
+      <div class="review-rating">
+        <% if (review.rating === "5") { %>   
+          ⭐⭐⭐⭐⭐
+        <% } else if (review.rating === "4") { %>
+          ⭐⭐⭐⭐ 
+        <% } else if (review.rating === "3") { %> 
+          ⭐⭐⭐ 
+        <% } else if (review.rating === "2") { %> 
+          ⭐⭐ 
+        <% } else if (review.rating === "1") { %> 
+          ⭐ 
+        <% } %> 
+      </div>
+      <div class="review-content">
         <%= review.content %> 
       </div>
     </div>

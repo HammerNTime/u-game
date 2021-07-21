@@ -85,7 +85,6 @@ function show(req, res) {
 }
 
 function edit(req, res) {
-  console.log("i work")
   Review.findById(req.params.id)
   .populate("game")
   .populate("author")

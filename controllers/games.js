@@ -200,7 +200,6 @@ function deleteGame(req, res) {
       Profile.findById(review.author)
       .populate("reviews")
       .then(profile => {
-        console.log(profile)
         profile.reviews.remove({ "_id": `${review._id}`})
         profile.save()
       })

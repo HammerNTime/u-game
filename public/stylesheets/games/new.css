@@ -45,7 +45,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   width: 200px;
-  word-break: break-all;
+  word-break: normal;
   font-size: 14px;
   font-family: 'Hammersmith One', sans-serif;  
 

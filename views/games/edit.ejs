@@ -13,7 +13,7 @@
       </div>
       <div>
         <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete Game</button>
+          <button type="submit" class="delete-game-btn">Delete Game</button>
         </form>
       </div>    
     </div>
@@ -42,7 +42,7 @@
           <label for="image-url-input"  class="image-url-label">Image:</label>
           <input type="text" name="imageUrl" id="image-url-input" class="image-url-input" value="<%= game.imageUrl %>" required>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="form-submit-btn">Submit</button>
       </form>
     </div>
   </div>

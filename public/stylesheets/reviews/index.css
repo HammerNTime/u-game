@@ -2,6 +2,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 .all-review-container {
   display: flex;
@@ -13,7 +14,7 @@ main {
 .full-review-container {
   display: flex;
   overflow: hidden;
-  margin: 5px;
+  margin: 10px;
   justify-content: center;
   border: 1.5px solid black;
   padding: 15px;

@@ -11,6 +11,7 @@ export {
   edit,
   update,
   deleteReview as delete,
+  index,
 }
 
 function newReview(req, res) {
@@ -55,6 +56,19 @@ function create(req,res) {
     console.log(err)
     res.redirect(`/reviews/${req.params.id}/new`)
   })
+}
+
+function index(req, res){
+    Review.find({})
+    .sort({"createdAt": -1})
+    .populate("game")
+    .populate("author")
+    .then(reviews => {
+      res.render("reviews/index", {
+        title: "Recent Reviews",
+        reviews,
+      })
+    })
 }
 
 function show(req, res) {

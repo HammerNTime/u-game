@@ -8,6 +8,7 @@ export {
 
 const router = Router()
 
+router.get("/", isLoggedIn, reviewsCtrl.index)
 router.get("/:id/new", isLoggedIn, reviewsCtrl.new)
 router.get("/:id/edit", isLoggedIn, reviewsCtrl.edit)
 router.get("/:id", isLoggedIn, reviewsCtrl.show)

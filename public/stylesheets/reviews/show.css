@@ -16,7 +16,11 @@ main {
 .game-image {
   width: 220px;
   height: 300px;
-  border: 2px black solid;
+  box-shadow: rgb(0, 0, 0) 3px 3px 3px 3px;
+}
+
+.game-image:hover {
+  box-shadow: rgb(184, 0, 0) 3px 3px 3px 3px;
 }
 
 .review-content-container {
@@ -33,11 +37,22 @@ main {
 .review-author {
   font-size: 14px;
   margin-bottom: 7px;
+  color: black;
+}
+
+.review-author-a {
+  text-decoration: none;
+  color: black;
+}
+
+.review-author-a:hover {
+  color: red;
 }
 
 .review-rating {
   font-size: 20px;
   margin-bottom: 7px;
+  
 }
 
 .review-content {

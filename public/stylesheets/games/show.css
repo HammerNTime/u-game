@@ -134,8 +134,8 @@ main {
 
 .owner {
   font-size: 12px;
-  text-decoration: none;
   margin: 3px;
+  text-decoration: none;
   color: black;
 }
 .owner:hover {

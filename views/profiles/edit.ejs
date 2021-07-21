@@ -34,7 +34,7 @@
         </div>
         <div class="twitch-container">
           <label for="twitch-url-input" class="twitch-url-label">Twitch Link:</label>
-          <input type="text" name="twitchUrl" value="<%= profile.twitchUrl %>" id="twitch-url-input" class="twitch-url-input">
+          <input type="text" name="twitchUrl" value="<%= profile.twitchUrl ? `${profile.twitchUrl}` : null %>" id="twitch-url-input" class="twitch-url-input">
         </div>
         <div class="avatar-url-container">
           <label for="avatar-url-input" class="avatar-url-label">Avatar Link:</label>

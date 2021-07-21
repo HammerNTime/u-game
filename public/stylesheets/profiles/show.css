@@ -30,6 +30,8 @@ main {
   flex-direction: column;
   width: 400px;
   align-items: center;
+  text-align: center;
+  padding-left: 35px;
 }
 
 .profile-name {

@@ -29,7 +29,7 @@
                 <%= profile.bio %> 
               </div>
             <% } %> 
-            <% if (profile.twitchUrl.length) { %> 
+            <% if (profile.twitchUrl.length && profile.twitchUrl[0] !== "") { %> 
               <div class="profile-twitch">
                   Twitch
               </div>

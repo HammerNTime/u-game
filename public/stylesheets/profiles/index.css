@@ -44,6 +44,8 @@ main {
   width: 200px;
   align-items: center;
   text-align: center;
+  padding-left: 17.5px;
+
 }
 
 .profile-name {

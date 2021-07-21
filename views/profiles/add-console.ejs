@@ -6,14 +6,18 @@
   <div class="profile-container">
     <div class="avatar-container">
       <% if (profile.avatar) { %>
-        <img 
-          class="profile-avatar"
-          src="<%= profile.avatar %>"
-          alt="<%= profile.name %> avatar"
-        >
+        <a href="/profiles/<%= profile._id %>">
+          <img 
+            class="profile-avatar"
+            src="<%= profile.avatar %>"
+            alt="<%= profile.name %> avatar"
+          >
+        </a>
       <% } else { %>
         <div>
-          <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
+          <a href="/profiles/<%= profile._id %>">
+            <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
+          </a >
         </div>
       <% } %> 
     </div>

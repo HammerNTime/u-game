@@ -127,8 +127,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
+  text-align: center;
   width: 500px;
 }
 .review-title {
@@ -140,4 +139,8 @@ main {
 
 .review-stars {
   font-size: 14px;
+}
+
+.review-content {
+  margin-bottom: 15px;
 }

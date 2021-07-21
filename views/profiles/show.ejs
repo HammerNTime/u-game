@@ -52,6 +52,9 @@
       <a href="/profiles/<%= profile._id %>/edit">
         <button class="edit-btn">Edit Profile</button>
       </a>
+      <a href="/profiles/<%= profile._id %>/add-console">
+        <button class="edit-btn">Add a Console</button>
+      </a>
     <% } %> 
   </div>
 
@@ -91,7 +94,7 @@
               ⭐ 
             <% } %> 
           </div>
-          <div>
+          <div class="review-content">
             <%= review.content %> 
           </div>
         <% }) %>       

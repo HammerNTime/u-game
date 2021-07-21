@@ -36,14 +36,6 @@ main {
 }
 
 
-
-.add-review-btn-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .owned-game {
   width: 220px;
   padding-top: 2px;
@@ -68,24 +60,6 @@ main {
 }
 
 .not-owned-game:hover {
-  cursor: pointer;
-  background-color: white;
-  color: black;
-}
-
-.review-game {
-  margin-top: 2px;
-  width: 220px;
-  padding-top: 2px;
-  height: 25px;
-  text-align: center;
-  border: 1px solid black;
-  font-size: 16px;
-  background-color: rgb(32, 32, 32);
-  color: white;
-}
-
-.review-game:hover {
   cursor: pointer;
   background-color: white;
   color: black;
@@ -168,33 +142,80 @@ main {
   background-color: rgb(255, 208, 99);
 }
 
-.review-text {
-  font-size: 24px;
-}
 
-.reviews-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 1100px;
+.add-review-text {
+  font-family: 'Tourney', cursive;
+  font-size: 30px;
+  margin-top: -10px;
 }
-
-.review-content-container {
+.add-review-form {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  text-align: center;
-  width: 500px;
-  margin: 0 25px 20px 25px;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
 }
 
-.review-title {
+.title-label, .rating-label, .content-label {
   font-size: 18px;
 }
-.review-stars {
-  font-size: 16px;
+
+.review-title-rating-container {
+  display: flex;
 }
 
-.game-reviews {
-  font-size: 16px;
+.title-container  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  margin: 0 10px 10px 10px;
+  width: 300px;
 }
 
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  margin: 0 10px 10px 10px;
+  width: 120px;
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-input {
+  font-size: 16px;
+  font-family: 'Hammersmith One', sans-serif;  
+}
+.rating-select {
+  font-size: 16px;
+  font-family: 'Hammersmith One', sans-serif;  
+}
+
+.content-input {
+  min-width: 440px;
+  min-height: 70px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: 'Hammersmith One', sans-serif;  
+  word-wrap: normal;
+}
+
+.review-form-btn {
+  font-size: 16px;
+  background-color: rgb(255, 208, 99);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 6px;
+  font-family: 'Tourney', cursive;
+
+}
+
+.review-form-btn:hover {
+  cursor: pointer;
+  background-color: rgb(88, 0, 0);
+  color: white;
+}

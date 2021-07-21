@@ -1,0 +1,64 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/reviews/new.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <div class="games-container">
+    <div class="game-btn-container">
+      <div class="game-image-container">
+        <a href="/games/<%= game._id %>">
+        <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
+        </a>    
+      </div>
+      <div class="add-review-btn-container">
+        <% if (user) { %> 
+          <% let owned = false %> 
+          <% game.ownedBy.forEach(owner => { %> 
+            <% if (owner.equals(user.profile)) { %>
+              <div>
+                You Own this Game
+              </div>
+              <% owned = true %> 
+              <% return %>  
+            <% } %>  
+          <% }) %> 
+          <% if (owned === false) { %> 
+            <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
+              <button type="submit">I Own This Game</button>
+            </form>
+          <% } %> 
+        <% } %> 
+      </div>
+    </div>
+      <div class="game-details">
+        <div class="game-title"><%= game.title %></div>
+        <div class="game-description"><%= game.description %></div>
+        <div class="game-genre"><%= game.genre %></div>
+        <% if (user) { %> 
+          <% game.ownedBy.forEach(owner => { %> 
+            <a href="/profiles/<%= owner._id %> ">
+              <div class="game-owned-by"><%= owner.name %></div>
+            </a>
+          <% }) %> 
+        <% } %> 
+      </div>
+    </div>
+    <h1>Edit Your Review!</h1>
+    <form class="add-review-form" id="add-review-form" action="/reviews/<%= review._id %>?_method=PUT" method="POST">
+      <label for="title-input">Review Title:</label>
+      <input type="text" name="title" id="title-input" value="<%= review.title %> ">
+      <label for="rating-input">Rating:</label>
+      <select name="rating" id="rating-input">
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+      <label for="content-input">Review:</label>
+      <input type="text" name="content" value="<%= review.content %> ">
+      <button type="submit">Submit</button>
+    </form>
+</main>
+
+<%- include('../partials/footer') %>

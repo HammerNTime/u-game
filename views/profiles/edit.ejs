@@ -29,8 +29,8 @@
           <input type="text" name="name" value="<%= profile.name %>" id="name-input" class="name-input" required>
         </div>
         <div class="bio-container">
-          <label for="bio-input" class="bio-label">Bio:</label>
-          <textarea type="text" name="bio" id="bio-input" class="bio-input"><%= profile.bio %></textarea>
+          <label for="bio-input" class="bio-label" >Bio:</label>
+          <textarea type="text" name="bio" id="bio-input" class="bio-input" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><%= profile.bio %></textarea>
         </div>
         <div class="twitch-container">
           <label for="twitch-url-input" class="twitch-url-label">Twitch Link:</label>

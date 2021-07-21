@@ -84,7 +84,7 @@
       </div>
       <div class="content-container">
         <label for="content-input" class="content-label">Review:</label>
-        <textarea type="text" name="content" class="content-input"></textarea>
+        <textarea type="text" name="content" class="content-input" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
       </div>
       <button type="submit" class="review-form-btn">Submit</button>
     </form>

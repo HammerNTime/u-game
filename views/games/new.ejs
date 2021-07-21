@@ -11,7 +11,7 @@
       </div>
       <div class="description-container">
         <label for="description-input" class="description-label">Description:</label>
-        <textarea type="text" name="description" id="description-input" class="description-input" required></textarea>
+        <textarea type="text" name="description" id="description-input" class="description-input" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' required></textarea>
       </div>
       <div class="genre-container">
         <label for="genre-input" class="genre-label">Genre:</label>

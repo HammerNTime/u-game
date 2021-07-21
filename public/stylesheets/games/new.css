@@ -26,6 +26,7 @@ main {
   align-items: center;
   margin: 0 0 20px;
 }
+
 .description-container {
   display: flex;
   width: 400px;
@@ -48,7 +49,6 @@ main {
   word-break: normal;
   font-size: 14px;
   font-family: 'Hammersmith One', sans-serif;  
-
 }
 
 .genre-select {
@@ -69,7 +69,6 @@ main {
   border-radius: 5px;
   padding: 6px;
   font-family: 'Tourney', cursive;
-
 }
 
 .form-submit-btn:hover {

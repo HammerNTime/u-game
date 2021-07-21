@@ -30,7 +30,7 @@
           <%= profile.bio %> 
         </div>
       <% } %> 
-      <% if (profile.twitchUrl) { %> 
+      <% if (profile.twitchUrl.length) { %> 
         <div class="profile-twitch">
           <a href="<%= profile.twitchUrl %> ">
             Twitch

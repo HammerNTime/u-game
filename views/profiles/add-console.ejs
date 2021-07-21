@@ -1,80 +1,117 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/profiles/add-console.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <% if (profile.avatar) { %>
-    <div>
-      <img 
-        class="profile-avatar"
-        src="<%= profile.avatar %>"
-        alt="<%= profile.name %> avatar"
-      >
+  <div class="profile-container">
+    <div class="avatar-container">
+      <% if (profile.avatar) { %>
+        <img 
+          class="profile-avatar"
+          src="<%= profile.avatar %>"
+          alt="<%= profile.name %> avatar"
+        >
+      <% } else { %>
+        <div>
+          <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
+        </div>
+      <% } %> 
     </div>
-  <% } else { %>
-    <div>
-      <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
-    </div>
-  <% } %> 
-  
-  <div>
-    <%= profile.name %> 
-  </div>
-  <% if (profile.twitchUrl) { %> 
-    <div>
-      <%= profile.twitchUrl %> 
-    </div>
-  <% } %> 
-  <% if (profile.console) { %>
-    <% profile.console.forEach(console => { %>
-      <div>
-        <%= console.system %> 
+    <div class="profile-content-container">
+      <div class="profile-name">
+        <%= profile.name %> 
       </div>
-      <div>
-        <%= console.gamerTag %> 
+      <% if (profile.bio) { %>
+        <div class="profile-bio">
+          <%= profile.bio %> 
+        </div>
+      <% } %> 
+      <% if (profile.twitchUrl) { %> 
+        <div class="profile-twitch">
+          <a href="<%= profile.twitchUrl %> ">
+            Twitch
+          </a>
+        </div>
+      <% } %> 
+      <div class="console-container">
+        <% profile.console.forEach(console => { %>
+          <div class="console-container-child">
+            <div>
+              <%= console.system %> 
+            </div>
+            <div>
+              <%= console.gamerTag %> 
+            </div>
+          </div>
+        <% }) %>  
       </div>
-    <% }) %>  
-  <% } %> 
-  
-<form id="add-console-form" 
-action="/profiles/<%= profile._id %>/add-console" 
-method="POST"
->
-  <label for="system-input">System:</label>
-  <input type="text" id="system-input" name="system">
-  <label for="gamer-tag-input">GamerTag:</label>
-  <input type="text" id="gamer-tag-input" name="gamerTag">
-  <button type="submit">Add</button>
-</form>
-
-  <div>
-    <% profile.ownedGames.forEach(game => { %> 
-    <a href="/games/<%= game._id %>">
-      <img class="game-image-url" src="<%= game.imageUrl %>" alt="<%= game.title %>">
-    </a>
-    <% }) %> 
+      <form class="add-console-form" id="add-console-form" 
+        action="/profiles/<%= profile._id %>/add-console" 
+        method="POST"
+        >
+        <div class="system-container">
+          <label for="system-input" class="system-label">System:</label>
+          <input type="text" id="system-input" name="system" class="system-input">
+        </div>
+        <div class="gamer-tag-container">
+          <label for="gamer-tag-input" class="gamer-tag-label">GamerTag:</label>
+          <input type="text" id="gamer-tag-input" name="gamerTag" class="gamer-tag-input">
+        </div>
+        <button type="submit" class="add-console-btn">Add</button>
+      </form>
+    </div>
   </div>
-
-  <% profile.reviews.forEach(review => { %> 
-    <div>
-      <a href="/reviews/<%= review._id %>">
-        <%= review.title %> 
+  <div class="edit-btn-container">
+    <% if (isSelf) { %> 
+      <a href="/profiles/<%= profile._id %>/edit">
+        <button class="edit-btn">Edit Profile</button>
       </a>
-    </div>
-    <% if (review.rating === "5") { %>   
-      <div>⭐⭐⭐⭐⭐</div>
-    <% } else if (review.rating === "4") { %>
-      <div>⭐⭐⭐⭐</div> 
-    <% } else if (review.rating === "3") { %> 
-      <div>⭐⭐⭐</div> 
-    <% } else if (review.rating === "2") { %> 
-      <div>⭐⭐</div> 
-    <% } else if (review.rating === "1") { %> 
-      <div>⭐</div> 
     <% } %> 
-    <div>
-      <%= review.content %> 
+  </div>
+
+  <div class="lower-container">
+    <div class="game-img-text-container">
+      <h2 class="owned-game-text-div">Owned Games</h3>
+      <div class="game-img-container">
+        <% profile.ownedGames.forEach(game => { %> 
+        <a href="/games/<%= game._id %>" class="game-img-url">
+          <img class="game-image-url" src="<%= game.imageUrl %>" alt="<%= game.title %>">
+        </a>
+        <% }) %> 
+      </div>
     </div>
-  <% }) %> 
+    <div class="review-text-container">
+      <h2 class="review-text-div">Reviews</h2>
+      <div class="review-container">
+        <% profile.reviews.forEach(review => { %> 
+          <div>
+            <a href="/reviews/<%= review._id %>">
+              <div class="review-title">
+                <%= review.title %> 
+              </div>
+            </a>
+            <div class="review-game-title"><%= review.gameTitle %> </div>
+          </div>
+          <div class="review-stars">
+            <% if (review.rating === "5") { %>   
+              ⭐⭐⭐⭐⭐
+            <% } else if (review.rating === "4") { %>
+              ⭐⭐⭐⭐ 
+            <% } else if (review.rating === "3") { %> 
+              ⭐⭐⭐ 
+            <% } else if (review.rating === "2") { %> 
+              ⭐⭐ 
+            <% } else if (review.rating === "1") { %> 
+              ⭐ 
+            <% } %> 
+          </div>
+          <div class="review-content">
+            <%= review.content %> 
+          </div>
+        <% }) %>       
+      </div>
+    </div>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

@@ -1,0 +1,80 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <% if (profile.avatar) { %>
+    <div>
+      <img 
+        class="profile-avatar"
+        src="<%= profile.avatar %>"
+        alt="<%= profile.name %> avatar"
+      >
+    </div>
+  <% } else { %>
+    <div>
+      <img class="profile-avatar" src="https://www.creativeboom.com/uploads/articles/74/746ceb5d478678ae3627e314dac5c436e03c03a2_810.jpg" alt="Placeholder Avatar Img">
+    </div>
+  <% } %> 
+  
+  <div>
+    <%= profile.name %> 
+  </div>
+  <% if (profile.twitchUrl) { %> 
+    <div>
+      <%= profile.twitchUrl %> 
+    </div>
+  <% } %> 
+  <% if (profile.console) { %>
+    <% profile.console.forEach(console => { %>
+      <div>
+        <%= console.system %> 
+      </div>
+      <div>
+        <%= console.gamerTag %> 
+      </div>
+    <% }) %>  
+  <% } %> 
+  
+<form id="add-console-form" 
+action="/profiles/<%= profile._id %>/add-console" 
+method="POST"
+>
+  <label for="system-input">System:</label>
+  <input type="text" id="system-input" name="system">
+  <label for="gamer-tag-input">GamerTag:</label>
+  <input type="text" id="gamer-tag-input" name="gamerTag">
+  <button type="submit">Add</button>
+</form>
+
+  <div>
+    <% profile.ownedGames.forEach(game => { %> 
+    <a href="/games/<%= game._id %>">
+      <img class="game-image-url" src="<%= game.imageUrl %>" alt="<%= game.title %>">
+    </a>
+    <% }) %> 
+  </div>
+
+  <% profile.reviews.forEach(review => { %> 
+    <div>
+      <a href="/reviews/<%= review._id %>">
+        <%= review.title %> 
+      </a>
+    </div>
+    <% if (review.rating === "5") { %>   
+      <div>⭐⭐⭐⭐⭐</div>
+    <% } else if (review.rating === "4") { %>
+      <div>⭐⭐⭐⭐</div> 
+    <% } else if (review.rating === "3") { %> 
+      <div>⭐⭐⭐</div> 
+    <% } else if (review.rating === "2") { %> 
+      <div>⭐⭐</div> 
+    <% } else if (review.rating === "1") { %> 
+      <div>⭐</div> 
+    <% } %> 
+    <div>
+      <%= review.content %> 
+    </div>
+  <% }) %> 
+</main>
+
+<%- include('../partials/footer') %>

@@ -10,9 +10,26 @@ export {
   createConsole,
   edit,
   update,
+  index,
 }
 
 
+function index(req, res) {
+  Profile.find({})
+  .sort("name")
+  .populate("reviews")
+  .populate("ownedGames")
+  .then(profiles => {
+      res.render("profiles/index", {
+        title: `All Profiles`,
+        profiles,
+      })
+    })
+  .catch((err) => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
 
 function show(req, res) {
   Profile.findById(req.params.id)

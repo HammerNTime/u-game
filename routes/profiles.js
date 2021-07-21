@@ -8,6 +8,7 @@ export {
 
 const router = Router()
 
+router.get("/", isLoggedIn, profilesCtrl.index)
 router.get("/:id/add-console", isLoggedIn, profilesCtrl.addConsole)
 router.get("/:id/edit", isLoggedIn, profilesCtrl.edit)
 router.get("/:id", isLoggedIn, profilesCtrl.show)

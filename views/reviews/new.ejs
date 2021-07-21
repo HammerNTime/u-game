@@ -3,61 +3,82 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div class="games-container">
-    <div class="game-btn-container">
-      <div class="game-image-container">
-        <a href="/games/<%= game._id %>">
-        <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
-        </a>    
-      </div>
-      <div class="add-review-btn-container">
-        <% if (user) { %> 
-          <% let owned = false %> 
-          <% game.ownedBy.forEach(owner => { %> 
-            <% if (owner.equals(user.profile)) { %>
-              <div>
-                You Own this Game
-              </div>
-              <% owned = true %> 
-              <% return %>  
-            <% } %>  
-          <% }) %> 
-          <% if (owned === false) { %> 
-            <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
-              <button type="submit">I Own This Game</button>
-            </form>
+  <div class="full-container">
+    <div class="games-container">
+      <div class="game-btn-container">
+        <div class="game-image-container">
+          <a href="/games/<%= game._id %>">
+            <img class="game-image" src="<%= game.imageUrl %>" alt="<%= game.title %> ">
+          </a>
+        </div>
+        <div class="add-review-btn-container">
+          <% if (user) { %> 
+            <% let owned = false %> 
+            <% game.ownedBy.forEach(owner => { %> 
+              <% if (owner.equals(user.profile)) { %>
+                <div class="owned-game">
+                  You Own this Game
+                </div>
+                <% owned = true %> 
+                <% return %>  
+              <% } %>  
+            <% }) %> 
+            <% if (owned === false) { %> 
+              <form action="/games/<%= game._id %>/ownGame?_method=PUT" method="POST">
+                <button type="submit" class="not-owned-game">I Own This Game</button>
+              </form>
+            <% } %> 
           <% } %> 
-        <% } %> 
+        </div>
       </div>
-    </div>
+  
       <div class="game-details">
-        <div class="game-title"><%= game.title %></div>
-        <div class="game-description"><%= game.description %></div>
-        <div class="game-genre"><%= game.genre %></div>
+        <div class="game-details-container">
+          <div class="game-title"><%= game.title %></div>
+          <div class="game-genre"><%= game.genre %></div>
+          <div class="game-description"><%= game.description %></div>
+        </div>
         <% if (user) { %> 
-          <% game.ownedBy.forEach(owner => { %> 
-            <a href="/profiles/<%= owner._id %> ">
-              <div class="game-owned-by"><%= owner.name %></div>
-            </a>
-          <% }) %> 
+          <div class="owner-container">
+            <div class="owned-by-text">Owned By</div>
+            <% game.ownedBy.forEach(owner => { %> 
+              <a href="/profiles/<%= owner._id %> " class="owner">
+                <div class="owner"><%= owner.name %></div>
+              </a>
+            <% }) %> 
+          </div>
         <% } %> 
       </div>
     </div>
-    <h1>Add Your Review!</h1>
-    <form id="add-review-form" action="/reviews/<%= game._id %>" method="POST">
-      <label for="title-input">Review Title:</label>
-      <input type="text" name="title" id="title-input">
-      <label for="rating-input">Rating:</label>
-      <select name="rating" id="rating-input">
-        <option value="1">⭐</option>
-        <option value="2">⭐⭐</option>
-        <option value="3">⭐⭐⭐</option>
-        <option value="4">⭐⭐⭐⭐</option>
-        <option value="5">⭐⭐⭐⭐⭐</option>
-      </select>
-      <label for="content-input">Review:</label>
-      <input type="text" name="content">
-      <button type="submit">Submit</button>
+  </div>
+    <% if (user) { %> 
+      <div class="edit-btn-container">
+        <a href="/games/<%= game._id %>/edit">
+          <button class="edit-btn">Edit</button>
+        </a>
+      </div>
+    <% } %> 
+    <h1 class="add-review-text">Add Your Review!</h1>
+    <form class="add-review-form" id="add-review-form" action="/reviews/<%= game._id %>" method="POST">
+      <div class="title-container">
+        <label for="title-input" class="title-label">Review Title:</label>
+        <input type="text" name="title" id="title-input" class="title-input">
+      </div>
+      <div class="rating-container">
+        <label for="rating-input" class="rating-label">Rating:</label>
+        <select name="rating" id="rating-input" class="rating-select">
+          <option value="1">⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+      </div>
+      <div class="content-container">
+        <label for="content-input" class="content-label">Review:</label>
+        <input type="text" name="content" class="content-input">
+      </div>
+      <button type="submit" class="review-form-btn">Submit</button>
     </form>
 </main>
 

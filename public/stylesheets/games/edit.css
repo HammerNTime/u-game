@@ -32,6 +32,12 @@ main {
 .game-image {
   width: 220px;
   height: 300px;
+  border: 2px solid black;
+}
+
+.game-image:hover {
+  cursor: pointer;
+  border: 3px solid white;
 }
 
 .game-details {

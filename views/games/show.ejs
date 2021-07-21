@@ -41,7 +41,13 @@
         </div>
         <% if (user) { %> 
           <div class="owner-container">
-            <div class="owned-by-text">Owned By</div>
+            <div class="owned-by-text">
+              <% if (game.ownedBy.length) { %> 
+                Owned By
+              <% } else { %>
+                No One Owns This Game
+              <% } %> 
+            </div>
             <% game.ownedBy.forEach(owner => { %> 
               <a href="/profiles/<%= owner._id %> " class="owner">
                 <div class="owner"><%= owner.name %></div>
@@ -59,7 +65,13 @@
         </a>
       </div>
     <% } %> 
-    <div class="review-text">Reviews</div>
+    <div class="review-text">
+      <% if (game.reviews.length) { %> 
+        Reviews
+      <% } else { %>
+        No Reviews Yet
+      <% } %> 
+    </div>
     <div class="reviews-container">
       <% game.reviews.forEach(function(review) { %>
         <div class="review-content-container">
@@ -82,7 +94,6 @@
             <% } %> 
           </div>
           <div class="game-reviews"><%= review.content %></div>
-          <% console.log(game.reviews) %> 
         </div>
       <% }) %> 
     </div>

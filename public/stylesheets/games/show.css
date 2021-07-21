@@ -14,7 +14,6 @@ main {
 .games-container {
   display: flex;
   justify-content: center;
-
 }
 
 .game-btn-container {

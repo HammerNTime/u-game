@@ -1,33 +1,41 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/reviews/show.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <div>
-    <a href="/games/<%= game._id %> ">
-      <img src="<%= game.imageUrl %> " alt="<%= game.title %> image">
-    </a>
-  </div>
-  <div>
-    <a href="/reviews/<%= review._id %>">
-      <%= review.title %> 
-    </a>
-  </div>
-  <% if (review.rating === "5") { %>   
-    <div>⭐⭐⭐⭐⭐</div>
-  <% } else if (review.rating === "4") { %>
-    <div>⭐⭐⭐⭐</div> 
-  <% } else if (review.rating === "3") { %> 
-    <div>⭐⭐⭐</div> 
-  <% } else if (review.rating === "2") { %> 
-    <div>⭐⭐</div> 
-  <% } else if (review.rating === "1") { %> 
-    <div>⭐</div> 
-  <% } %> 
-  <div>
-    <%= review.content %> 
+  <div class="full-review-container">
+    <div class="game-image container">
+      <a href="/games/<%= game._id %> ">
+        <img class="game-image" src="<%= game.imageUrl %> " alt="<%= game.title %> image">
+      </a>
+    </div>
+    <div class="review-content-container">
+      <div>
+        <a href="/reviews/<%= review._id %>">
+          <%= review.title %> 
+        </a>
+      </div>
+      <div>By: <%= review.author.name %> </div>
+      <% if (review.rating === "5") { %>   
+        <div>⭐⭐⭐⭐⭐</div>
+      <% } else if (review.rating === "4") { %>
+        <div>⭐⭐⭐⭐</div> 
+      <% } else if (review.rating === "3") { %> 
+        <div>⭐⭐⭐</div> 
+      <% } else if (review.rating === "2") { %> 
+        <div>⭐⭐</div> 
+      <% } else if (review.rating === "1") { %> 
+        <div>⭐</div> 
+      <% } %> 
+      <div>
+        <%= review.content %> 
+      </div>
+    </div>
   </div>
   <% if (isSelf) { %>
-    <a href="/reviews/<%= review._id %>/edit"><button>Edit</button></a>
+    <div class="edit-btn-container">
+      <a href="/reviews/<%= review._id %>/edit"><button class="edit-btn">Edit</button></a>
+    </div>
   <% } %> 
 </main>
 

@@ -37,7 +37,8 @@ main {
 
 .profile-container:hover {
   cursor: pointer;
-  border: 1.5px red solid;
+  border: 2px red solid;
+  background-color: rgb(165, 230, 252);
 }
 
 .profile-content-container {

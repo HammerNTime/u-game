@@ -23,7 +23,7 @@
       </div>
     <% } %> 
     <div class="form-console-btn-container">
-      <form class="edit-form" action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+      <form class="edit-form" action="/profiles/<%= profile._id %>?_method=PUT" method="POST" autocomplete="off">
         <div class="name-container">
           <label for="name-input" class="name-label">Name:</label>
           <input type="text" name="name" value="<%= profile.name %>" id="name-input" class="name-input" required>

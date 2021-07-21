@@ -59,7 +59,7 @@
       </div>
     <% } %> 
     <h1 class="add-review-text">Edit Your Review!</h1>
-    <form class="add-review-form" id="add-review-form" action="/reviews/<%= review._id %>?_method=PUT" method="POST">
+    <form class="add-review-form" id="add-review-form" action="/reviews/<%= review._id %>?_method=PUT" method="POST" autocomplete="off">
       <div class="review-title-rating-container">
         <div class="title-container">
           <label for="title-input" class="title-label">Review Title</label>
@@ -80,13 +80,13 @@
         <label for="content-input" class="content-label">Review:</label>
         <textarea type="text" name="content" class="content-input"><%= review.content %></textarea>
       </div>
-      <div class="edit-delete-btn-container">
-        <button type="submit" class="review-form-btn">Update</button>
-      </form>
-      <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" id="delete-form">
-        <button type="submit" class="review-delete-btn" form="delete-form">DELETE</button>
+        <div class="edit-delete-btn-container">
+          <button type="submit" class="review-form-btn">Update</button>
+        </form>
+        <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST" id="delete-form">
+          <button type="submit" class="review-delete-btn" form="delete-form">DELETE</button>
       </form>  
-    </div>
+      </div>
 </main>
 
 <%- include('../partials/footer') %>

@@ -12,13 +12,13 @@
         </a>    
       </div>
       <div>
-        <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+        <form action="/games/<%= game._id %>?_method=DELETE" method="POST" autocomplete="off">
           <button type="submit" class="delete-game-btn">Delete Game</button>
         </form>
       </div>    
     </div>
     <div>
-      <form class="add-game-form" id="add-game-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
+      <form class="add-game-form" id="add-game-form" action="/games/<%= game._id %>?_method=PUT" method="POST" autocomplete="off">
         <div class="title-container">
           <label for="title-input" class="title-label">Title:</label>
           <input type="text" name="title" id="title-input" class="title-input" value="<%= game.title %>" required>

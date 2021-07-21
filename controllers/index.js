@@ -21,11 +21,9 @@ function index(req, res) {
       game1: games[randNums[0]],
       game2: games[randNums[1]],
       game3: games[randNums[2]]
-      
     })
   })
 }
-
 
 function getRandomInt(max) {
   let nums = []

@@ -206,13 +206,15 @@ function getStars(totalRating){
     return "⭐"
   } else if (totalRating < 2) {
     return "⭐ ½"
+  } else if (totalRating < 2.5) {
+    return "⭐⭐"
   } else if (totalRating < 3) {
     return "⭐⭐ ½"
   } else if (totalRating < 3.5) {
     return "⭐⭐⭐"
   } else if (totalRating < 4) {
     return "⭐⭐⭐ ½"
-  } else if (totalRating < 4.5) {
+  } else if (totalRating <4.5) {
     return "⭐⭐⭐⭐"
   } else if (totalRating < 4.9) {
     return "⭐⭐⭐⭐ ½"

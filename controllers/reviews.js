@@ -114,7 +114,9 @@ function edit(req, res) {
       .then(self => {
         Game.findById(review.game._id)
         .populate("ownedBy")
+        .populate("reviews")
         .then(game => {
+          const avgRating = getAverage(game)
           const isSelf = findSelf(self, review)
           if (isSelf){
             res.render("reviews/edit", {
@@ -123,6 +125,7 @@ function edit(req, res) {
               game,
               isSelf,
               self,
+              avgRating,
             })
           } else {
             res.redirect(`/reviews/${req.params.id}`)

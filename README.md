@@ -45,7 +45,14 @@ Don't forget to check out other people's profiles on the "All Profiles" page, so
 Did you mess up your review? Or does the image you used for a game not look right? No Problem! Hit that nifty "Edit" button! Don't worry, only you can edit your reviews.
 
 
+## Ice Box
+
+* Delete Owned Games
+* Add @media for multiple views starting with Phone
+* Dark Mode
+* Add Friends
 
 
+## Credits:
 
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

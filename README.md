@@ -48,7 +48,7 @@ Did you mess up your review? Or does the image you used for a game not look righ
 ## Ice Box
 
 * Delete Owned Games
-* Add @media for multiple views starting with Phone
+* Add @media for multiple views starting with mobile
 * Add search functionality
 * Dark Mode
 * Add Friends

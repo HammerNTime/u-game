@@ -53,9 +53,11 @@ function show(req, res) {
   .populate("reviews")
   .populate("ownedBy")
   .then(game => {
+    const avgRating = getAverage(game)
     res.render("games/show", {
       title: game.title,
-      game
+      game,
+      avgRating
     })
   })
   .catch(err => {
@@ -212,4 +214,36 @@ function deleteGame(req, res) {
   .catch(err => {
     console.log(err)
   })
+}
+
+
+
+function getAverage(game){
+  let totalRating = 0
+  game.reviews.forEach(review => {
+    totalRating += parseInt(review.rating)
+  })
+  totalRating = totalRating/game.reviews.length
+  let final = getStars(totalRating)
+  return final
+}
+
+function getStars(totalRating){
+  if (totalRating < 1.5) {
+    return "⭐"
+  } else if (totalRating < 2) {
+    return "⭐ ½"
+  } else if (totalRating < 3) {
+    return "⭐⭐ ½"
+  } else if (totalRating < 3.5) {
+    return "⭐⭐⭐"
+  } else if (totalRating < 4) {
+    return "⭐⭐⭐ ½"
+  } else if (totalRating < 4.5) {
+    return "⭐⭐⭐⭐"
+  } else if (totalRating < 4.9) {
+    return "⭐⭐⭐⭐ ½"
+  } else if (totalRating <= 5) {
+    return "⭐⭐⭐⭐⭐"
+  }
 }

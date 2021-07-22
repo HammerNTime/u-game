@@ -17,10 +17,13 @@ export {
 function newReview(req, res) {
   Game.findById(req.params.id)
   .populate("ownedBy")
+  .populate("reviews")
   .then(game => {
+    const avgRating = getAverage(game)
     res.render("reviews/new", {
       title: `Review ${game.title}`,
-      game
+      game,
+      avgRating,
     })
   })
   .catch(err => {
@@ -184,4 +187,36 @@ function findSelf(selfParam, objId){
     }
   })
   return checker
+}
+
+
+
+function getAverage(game){
+  let totalRating = 0
+  game.reviews.forEach(review => {
+    totalRating += parseInt(review.rating)
+  })
+  totalRating = totalRating/game.reviews.length
+  let final = getStars(totalRating)
+  return final
+}
+
+function getStars(totalRating){
+  if (totalRating < 1.5) {
+    return "⭐"
+  } else if (totalRating < 2) {
+    return "⭐ ½"
+  } else if (totalRating < 3) {
+    return "⭐⭐ ½"
+  } else if (totalRating < 3.5) {
+    return "⭐⭐⭐"
+  } else if (totalRating < 4) {
+    return "⭐⭐⭐ ½"
+  } else if (totalRating < 4.5) {
+    return "⭐⭐⭐⭐"
+  } else if (totalRating < 4.9) {
+    return "⭐⭐⭐⭐ ½"
+  } else if (totalRating <= 5) {
+    return "⭐⭐⭐⭐⭐"
+  }
 }

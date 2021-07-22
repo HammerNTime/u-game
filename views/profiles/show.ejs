@@ -60,7 +60,20 @@
 
   <div class="lower-container">
     <div class="game-img-text-container">
-      <h2 class="owned-game-text-div">Owned Games</h3>
+      <% if (profile.ownedGames.length) { %>
+        <% if (isSelf) { %>
+          <h2 class="owned-game-text-div">Your Games</h3>
+        <% } else { %>  
+          <h2 class="owned-game-text-div"><%= profile.name %>'s Games</h3>
+        <% } %> 
+      <% } else { %>
+        <% if (isSelf) { %>
+          <h2 class="owned-game-text-div">You don't own any games</h3>
+        <% } else { %>  
+          <h2 class="owned-game-text-div"><%= profile.name %> doesn't own any games</h3>
+        <% } %> 
+      <% } %>  
+
       <div class="game-img-container">
         <% profile.ownedGames.forEach(game => { %> 
         <a href="/games/<%= game._id %>" class="game-img-url">
@@ -70,7 +83,19 @@
       </div>
     </div>
     <div class="review-text-container">
-      <h2 class="review-text-div">Reviews</h2>
+      <% if (profile.reviews.length) { %>
+        <% if (isSelf) { %>
+          <h2 class="review-text-div">Your Reviews</h2>
+        <% } else { %>  
+        <h2 class="review-text-div"><%= profile.name %>'s Reviews</h2>
+        <% } %> 
+      <% } else { %>
+        <% if (isSelf) { %>
+          <h2 class="review-text-div">You have no game reviews</h2>
+        <% } else { %>  
+        <h2 class="review-text-div"><%= profile.name %> has no game reviews</h2>
+        <% } %> 
+      <% } %>  
       <div class="review-container">
         <% profile.reviews.forEach(review => { %> 
           <div>

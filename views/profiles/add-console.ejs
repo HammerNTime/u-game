@@ -86,8 +86,21 @@
       </div>
     </div>
     <div class="review-text-container">
-      <h2 class="review-text-div">Reviews</h2>
-      <div class="review-container">
+      <div class="review-text-container">
+        <% if (profile.reviews.length) { %>
+          <% if (isSelf) { %>
+            <h2 class="review-text-div">Your Reviews</h2>
+          <% } else { %>  
+          <h2 class="review-text-div"><%= profile.name %>'s Reviews</h2>
+          <% } %> 
+        <% } else { %>
+          <% if (isSelf) { %>
+            <h2 class="review-text-div">You have no game reviews</h2>
+          <% } else { %>  
+          <h2 class="review-text-div"><%= profile.name %> has no game reviews</h2>
+          <% } %> 
+        <% } %>  
+          <div class="review-container">
         <% profile.reviews.forEach(review => { %> 
           <div>
             <a href="/reviews/<%= review._id %>">

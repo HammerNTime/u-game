@@ -46,7 +46,6 @@ Did you mess up your review? Or does the image you used for a game not look righ
 
 
 ## Ice Box
-
 * Delete Owned Games
 * Add @media for multiple views starting with mobile
 * Add search functionality
@@ -54,9 +53,22 @@ Did you mess up your review? Or does the image you used for a game not look righ
 * Add Friends
 * Refactor/cleanup Code
 
+## Tech Used:
+* HTML
+* CSS
+* JavaScript
+* EJS
+* MongoDB
+* Mongoose
+* Express
+* Express-session
+* Google Oauth
+* Passport
+* Dotenv
+* Method-override
+* Morgan
 
 ## Credits:
-
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 

@@ -49,10 +49,18 @@ Did you mess up your review? Or does the image you used for a game not look righ
 
 * Delete Owned Games
 * Add @media for multiple views starting with Phone
+* Add search functionality
 * Dark Mode
 * Add Friends
+* Refactor/cleanup Code
 
 
 ## Credits:
 
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+
+### Want to see the creative process?
+https://whimsical.com/ugame-9n6KRUJVCnzFqnXqVmnhaD<br>
+
+![alt text](./public/images/readmeImgs/Whimsicle%20board.png)

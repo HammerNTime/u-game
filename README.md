@@ -22,17 +22,23 @@ That's okay, you can go to the "Add a Game" page to create the missing game!<br>
 
 
 ### Did you love/hate a specific game?
-Tell everyone why by creating a review!
+Tell everyone why by creating a review!<br>
+
+![alt text](./public/images/readmeImgs/add-review.png)
 
 
 ### Want to see what people are talking about? 
-Navigate to the "Recent Reviews" page to see most recent to oldest reviews created!
+Navigate to the "Recent Reviews" page to see most recent to oldest reviews created!<br>
+
+![alt text](./public/images/readmeImgs/review-index.png)
 
 
 ### Create a Profile!
 In your profile page feel free to update your Name, Profile Picture, Twitch Link, Bio, and consoles you own. You can even add a Gamer Tag for each console if you would like to connect with others online!
 
-Don't forget to check out other people's profiles on the "All Profiles" page, so you can see what games they own and reviews they've made!
+Don't forget to check out other people's profiles on the "All Profiles" page, so you can see what games they own and reviews they've made!<br>
+
+![alt text](./public/images/readmeImgs/profile-show.png)
 
 
 ### Don't let that mistake get you down!

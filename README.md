@@ -8,6 +8,12 @@ https://u-game-unit-2-project.herokuapp.com/
 
 U-Game is a site that you can browse video games from! Inside the site you can create a profile to add games you own from an crowd sourced list of games. 
 
+Home
+![alt text](./public/images/readmeImgs/index-page.png)
+
+All Games
+![alt text](./public/images/readmeImgs/games-index.png)
+
 
 #### Don't see a game on the list? 
 That's okay, you can go to the "Add a Game" page to create the missing game!

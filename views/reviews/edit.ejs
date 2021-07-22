@@ -69,11 +69,11 @@
         <div class="rating-container">
           <label for="rating-input" class="rating-label">Rating</label>
           <select name="rating" id="rating-input" class="rating-select">
-            <option value="1">⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="1" <%= review.rating == "1" ? "selected" : "" %>>⭐</option>
+            <option value="2" <%= review.rating == "2" ? "selected" : "" %>>⭐⭐</option>
+            <option value="3" <%= review.rating == "3" ? "selected" : "" %>>⭐⭐⭐</option>
+            <option value="4" <%= review.rating == "4" ? "selected" : "" %>>⭐⭐⭐⭐</option>
+            <option value="5" <%= review.rating == "5" ? "selected" : "" %>>⭐⭐⭐⭐⭐</option>
           </select>
         </div>
       </div>

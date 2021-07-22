@@ -32,12 +32,12 @@
         <div class="genre-container">
           <label for="genre-input" class="genre-label">Genre:</label>
           <select name="genre" id="genre-input" class="genre-select">
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="RPG">RPG</option>
-            <option value="Shooter">Shooter</option>
-            <option value="Simulation">Simulation</option>
-            <option value="Sports">Sports</option>
+            <option value="Action" <%= game.genre == "Action" ? "selected" : "" %>>Action</option>
+            <option value="Adventure" <%= game.genre == "Adventure" ? "selected" : "" %>>Adventure</option>
+            <option value="RPG" <%= game.genre == "RPG" ? "selected" : "" %>>RPG</option>
+            <option value="Shooter" <%= game.genre == "Shooter" ? "selected" : "" %>>Shooter</option>
+            <option value="Simulation" <%= game.genre == "Simulation" ? "selected" : "" %>>Simulation</option>
+            <option value="Sports" <%= game.genre == "Sports" ? "selected" : "" %>>Sports</option>
           </select>
         </div>
         <div class="image-url-container">

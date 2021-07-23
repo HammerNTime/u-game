@@ -75,7 +75,7 @@
       <% } %>  
 
       <div class="game-img-container">
-        <% profile.ownedGames.forEach(game => { %> 
+        <% ownedGames.forEach(game => { %> 
         <a href="/games/<%= game._id %>" class="game-img-url">
           <img class="game-image-url" src="<%= game.imageUrl %>" alt="<%= game.title %>">
         </a>

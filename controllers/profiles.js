@@ -33,6 +33,7 @@ function show(req, res) {
   .populate("reviews")
   .populate("ownedGames")
   .then(profile => {
+    const ownedGames = sortGames(profile)
     const reviews = reverseReviews(profile)
     Profile.findById(req.user.profile._id)
     .then(self => {
@@ -42,7 +43,8 @@ function show(req, res) {
         profile,
         self,
         isSelf,
-        reviews
+        reviews,
+        ownedGames
       })
     })
   })
@@ -57,6 +59,7 @@ function addConsole(req, res){
   .populate("reviews")
   .populate("ownedGames")
   .then(profile => {
+    const ownedGames = sortGames(profile)
     const reviews = reverseReviews(profile)
     Profile.findById(req.user.profile._id)
     .then(self => {
@@ -66,7 +69,8 @@ function addConsole(req, res){
         profile,
         self,
         isSelf,
-        reviews
+        reviews,
+        ownedGames,
       })
     })
   })
@@ -119,3 +123,23 @@ function reverseReviews(profile) {
   reversed = reversed.reverse()
   return reversed
 }
+
+function sortGames(profile) {
+  let unsorted = []
+  profile.ownedGames.forEach(game => {
+    unsorted.push(game)
+  })
+  return unsorted.sort(compare)
+
+}
+
+function compare(a, b) {
+  if (a.title < b.title) {
+    return -1
+  }
+  if (a.title > b.title) {
+    return 1
+  }
+  return 0
+}
+

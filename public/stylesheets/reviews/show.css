@@ -11,6 +11,7 @@ main {
   border: 3px solid black;
   padding: 30px;
   background-color: rgb(182, 237, 255);
+  align-items: center;
 }
 
 .game-image {
@@ -26,16 +27,17 @@ main {
 .review-content-container {
   width: 500px;
   text-align: center;
-  padding: 20px 0 0 30px;
+  padding: 0 0 0 30px;
 }
 
 .review-title {
   font-family: 'Tourney', cursive;
-  font-size: 30px;
+  font-size: 35px;
+  margin-bottom: 5px;
 }
 
 .review-author {
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 7px;
   color: black;
 }
@@ -50,13 +52,13 @@ main {
 }
 
 .review-rating {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 7px;
   
 }
 
 .review-content {
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .edit-btn-container {

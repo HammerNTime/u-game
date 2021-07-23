@@ -89,6 +89,7 @@ main {
   text-align: center;
 }
 
+
 .game-details {
   display: flex;
   flex-wrap: wrap;
@@ -100,14 +101,19 @@ main {
 .game-title {
   width: 100%;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   font-family: 'Tourney', cursive;
   margin: 10px 0 0 0;
 }
+
+.game-avg-rating {
+  font-size: 25px;
+}
+
 .game-genre {
   width: 100%;
   text-align: center;
-  font-size: 17px;
+  font-size: 18px;
   margin-bottom: 20px;
   color: rgb(88, 0, 0);
 }

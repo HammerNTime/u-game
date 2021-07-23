@@ -133,7 +133,15 @@ main {
 }
 .review-title {
   font-size: 18px;
+  font-weight: 600;
+  color: rgb(0, 2, 139);
+  font-family: 'Tourney', cursive;
 }
+
+.review-title:hover {
+  color: red;
+}
+
 .review-game-title {
   font-size: 16px;
 }

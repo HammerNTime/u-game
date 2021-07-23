@@ -48,11 +48,11 @@ main {
 
 .review-title {
   font-family: 'Tourney', cursive;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .review-author {
-  font-size: 7px;
+  font-size: 14px;
   margin-bottom: 3.5px;
   color: black;
 }
@@ -67,12 +67,12 @@ main {
 }
 
 .review-rating {
-  font-size: 10px;
+  font-size: 16px;
   margin-bottom: 3.5px;
   
 }
 
 .review-content {
-  font-size: 7.5px;
+  font-size: 14px;
 }
 

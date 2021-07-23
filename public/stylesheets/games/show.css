@@ -163,6 +163,7 @@ main {
 
 .review-text {
   font-size: 24px;
+  font-family: 'Tourney', cursive;
 }
 
 .reviews-container {
@@ -181,12 +182,20 @@ main {
 }
 
 .review-title {
-  font-size: 18px;
+  font-size: 23px;
+  font-weight: 600;
+  color: rgb(0, 2, 139);
+  font-family: 'Tourney', cursive;
 }
+
+.review-title:hover {
+  color: red;
+}
+
 .review-stars {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .game-reviews {
-  font-size: 16px;
+  font-size: 18px;
 }

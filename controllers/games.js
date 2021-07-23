@@ -48,22 +48,6 @@ function create(req, res){
   })
 }
 
-function show(req, res) {
-  Game.findById(req.params.id)
-  .populate("reviews")
-  .populate("ownedBy")
-  .then(game => {
-    const avgRating = getAverage(game)
-    res.render("games/show", {
-      title: game.title,
-      game,
-      avgRating
-    })
-  })
-  .catch(err => {
-    res.redirect("/games")
-  })
-}
 
 function ownGame(req, res) {
   Profile.findById(req.user.profile._id)
@@ -218,6 +202,25 @@ function deleteGame(req, res) {
 
 
 
+function show(req, res) {
+  Game.findById(req.params.id)
+  .populate("reviews")
+  .populate("ownedBy")
+  .then(game => {
+    const avgRating = getAverage(game)
+    const reviews = reverseReviews(game)
+    res.render("games/show", {
+      title: game.title,
+      game,
+      avgRating,
+      reviews
+    })
+  })
+  .catch(err => {
+    res.redirect("/games")
+  })
+}
+
 function getAverage(game){
   let totalRating = 0
   game.reviews.forEach(review => {
@@ -248,4 +251,13 @@ function getStars(totalRating){
   } else if (totalRating <= 5) {
     return "⭐⭐⭐⭐⭐"
   }
+}
+
+function reverseReviews(game) {
+  let reversed = []
+  game.reviews.forEach(review => {
+    reversed.push(review)
+  })
+  reversed = reversed.reverse()
+  return reversed
 }

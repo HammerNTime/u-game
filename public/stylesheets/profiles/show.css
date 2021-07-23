@@ -84,7 +84,6 @@ main {
 
 .lower-container {
   display: flex;
-  margin-top: 10px;
   width: 1200px;
 }
 
@@ -121,7 +120,8 @@ main {
 }
 
 .review-text-div, .owned-game-text-div {
-  font-size: 18px;
+  font-size: 22px;
+  font-family: 'Tourney', cursive;
 }
 
 .review-container {
@@ -133,16 +133,17 @@ main {
   width: 500px;
 }
 .review-title {
-  font-size: 16px;
+  font-size: 18px;
 }
 .review-game-title {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .review-stars {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .review-content {
   margin-bottom: 15px;
+  font-size: 14px;
 }

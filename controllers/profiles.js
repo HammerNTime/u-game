@@ -33,6 +33,7 @@ function show(req, res) {
   .populate("reviews")
   .populate("ownedGames")
   .then(profile => {
+    const reviews = reverseReviews(profile)
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
@@ -40,7 +41,8 @@ function show(req, res) {
         title: `${profile.name}'s profile`,
         profile,
         self,
-        isSelf
+        isSelf,
+        reviews
       })
     })
   })
@@ -55,6 +57,7 @@ function addConsole(req, res){
   .populate("reviews")
   .populate("ownedGames")
   .then(profile => {
+    const reviews = reverseReviews(profile)
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
@@ -62,7 +65,8 @@ function addConsole(req, res){
         title: `Add Console`,
         profile,
         self,
-        isSelf
+        isSelf,
+        reviews
       })
     })
   })
@@ -105,4 +109,13 @@ function update(req, res) {
       })
     }
   })
+}
+
+function reverseReviews(profile) {
+  let reversed = []
+  profile.reviews.forEach(review => {
+    reversed.push(review)
+  })
+  reversed = reversed.reverse()
+  return reversed
 }

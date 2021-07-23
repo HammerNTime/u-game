@@ -4,6 +4,13 @@ main {
   align-items: center;
 }
 
+.discover {
+  font-family: 'Tourney', cursive;
+  font-weight: 600;
+  font-size: 40px;
+  margin: 30px;
+}
+
 .games-container {
   display: flex;
   align-items: center;

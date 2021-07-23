@@ -22,30 +22,13 @@
           </div>
           <div class="profile-content-container">
             <div class="profile-name">
-              <%= profile.name %> 
+              <%= profile.name.split(" ").shift() %> 
             </div>
             <% if (profile.bio) { %>
               <div class="profile-bio">
                 <%= profile.bio %> 
               </div>
             <% } %> 
-            <% if (profile.twitchUrl.length && profile.twitchUrl[0] !== "") { %> 
-              <div class="profile-twitch">
-                  Twitch
-              </div>
-            <% } %> 
-            <div class="console-container">
-              <% profile.console.forEach(console => { %>
-                <div class="console-container-child">
-                  <div>
-                    <%= console.system %> 
-                  </div>
-                  <div>
-                    <%= console.gamerTag %> 
-                  </div>
-                </div>
-              <% }) %>  
-            </div>
           </div>
         </div>
       </a>

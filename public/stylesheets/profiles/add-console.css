@@ -46,6 +46,12 @@ main {
 
 .profile-twitch {
   font-size: 14px;
+  font-weight: 600;
+  color: blue;
+}
+
+.profile-twitch:hover {
+  color: red;
 }
 
 .console-container {
